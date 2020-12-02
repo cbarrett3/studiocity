@@ -1,21 +1,30 @@
+/* react & react native */
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, View } from 'react-native';
+/* expo */
 import { StatusBar } from 'expo-status-bar';
+/* lottie */
 import LottieView from 'lottie-react-native';
 import 'react-native-gesture-handler';
+/* eva & ui kitten */
 import * as eva from '@eva-design/eva';
-import { EvaIconsPack } from '@ui-kitten/eva-icons';
-import { ApplicationProvider, IconRegistry, Icon } from '@ui-kitten/components';
+import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
+/* custom theme */
 import { default as customTheme } from './custom-theme.json';
-import { FeatherIconsPack } from './assets/icons/feather-icons';
-import { MaterialIconsPack } from './assets/icons/material-icons';
-import { AppStackNavigator } from './navigation/AppStackNavigator';
 import { ThemeContext } from './theme-context';
+/* icon packs */
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
+import { FeatherIconsPack } from './assets/icons/FeatherIconsPack';
+import { MaterialIconsPack } from './assets/icons/MaterialIconsPack';
+import { AssetIconsPack } from './assets/icons/AssetIconsPack';
+/* other components */
+import { AppStackNavigator } from './navigation/AppStackNavigator';
+
 
 export default function App() {
 
   /* state */
-  const [theme, setTheme] = React.useState('dark');
+  const [theme, setTheme] = React.useState('light');
   const [splash, setSplash] = useState(true);
 
   /* toggle theme color during runtime */
@@ -50,7 +59,7 @@ export default function App() {
   /* app root component */
   return (
     <>
-      <IconRegistry icons={[EvaIconsPack, FeatherIconsPack, MaterialIconsPack]} />
+      <IconRegistry icons={[EvaIconsPack, FeatherIconsPack, MaterialIconsPack, AssetIconsPack]} />
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
         <ApplicationProvider {...eva} theme={{ ...eva[theme], ...customTheme }}>
           <AppStackNavigator/>
