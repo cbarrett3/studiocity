@@ -1,0 +1,38 @@
+{
+    "components": {
+      "Button": {
+        "meta": {},
+        "appearances": {
+          "filled": {
+            "mapping": {},
+            "variantGroups": {
+              "status": {
+                "primary": {
+                  "backgroundColor": "color-primary-default"
+                }
+              }
+            } 
+          },
+          "ghost": {
+            "mapping": {},
+            "variantGroups": {
+              "status": {
+                "primary": {
+                  "state": {
+                    "active": {
+                      "borderColor": "transparent",
+                      "backgroundColor": "transparent"
+                    },
+                    "focused": {
+                      "borderColor": "transparent",
+                      "backgroundColor": "transparent"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
