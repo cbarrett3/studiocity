@@ -32,6 +32,7 @@ export default function App() {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(nextTheme);
   };
+  
 
   /* wait 2.5 seconds on splash screen */
   useEffect(()=> {
