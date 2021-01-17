@@ -23,6 +23,7 @@ import { AppStackNavigator } from './navigation/AppStackNavigator';
 // testing with git...
 // again
 // testing in development branch
+// adding a comment to dev
 
 export default function App() {
 
