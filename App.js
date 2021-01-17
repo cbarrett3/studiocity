@@ -30,7 +30,7 @@ import { AppStackNavigator } from './navigation/AppStackNavigator';
 export default function App() {
 
   /* state */
-  const [theme, setTheme] = React.useState('light');
+  const [theme, setTheme] = useState('light');
   const [splash, setSplash] = useState(true);
 
   /* toggle theme color during runtime */
