@@ -31,7 +31,8 @@ const DrawerContent = ({ navigation, state }) => (
       <DrawerItem
          title={<Text category='h6'>Home</Text>} // title={evaProps => <Text ...
          accessoryLeft={HomeIcon}
-         accessoryRight={ForwardIcon} />
+         accessoryRight={ForwardIcon} 
+      />
       <DrawerItem
          title={<Text category='h6'>Settings</Text>}
          accessoryLeft={SettingsIcon}

@@ -5,7 +5,15 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest",
+    "test:debug": "node --inspect-brk node_modules/jest/bin/jest.js --runInBand"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-native-web|react-native-tab-view|react-native-svg-transformer|react-native-svg|react-native-screens|react-native-scalable-image|react-native-gesture-handler|react-native-reanimated|react-native-safe-area-context|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@ui-kitten/.*|@eva-design/eva|lottie-react-native|@unimodules/.*|react-test-renderer|react-native-reanimated|unimodules|sentry-expo|native-base|@sentry/.*)"
+    ]
   },
   "dependencies": {
     "@eva-design/eva": "^2.0.0",
@@ -38,7 +46,10 @@
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0"
+    "@babel/core": "~7.9.0",
+    "@testing-library/react-native": "^7.1.0",
+    "jest-expo": "^39.0.0",
+    "react-test-renderer": "^17.0.1"
   },
   "private": true
 }
