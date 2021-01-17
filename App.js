@@ -25,6 +25,8 @@ import { AppStackNavigator } from './navigation/AppStackNavigator';
 // testing in development branch
 // adding a comment to dev
 
+// random addition to development branch while testing is going on
+
 export default function App() {
 
   /* state */
