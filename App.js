@@ -20,6 +20,7 @@ import { AssetIconsPack } from './assets/icons/AssetIconsPack';
 /* other components */
 import { AppStackNavigator } from './navigation/AppStackNavigator';
 
+// testing with git...
 
 export default function App() {
 
