@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Image } from 'react-native';
-import { Layout, Button, Icon, Card, List, Text, ListItem } from '@ui-kitten/components';
+import { Layout, Button, Icon, Card, List, Text, Avatar } from '@ui-kitten/components';
 
 /* SUDO LOGIC FOR DISPLAY: 
 1. Display list of content
@@ -12,37 +12,54 @@ const data = new Array(100).fill({
    title: 'Item',
 });
 
-// class myData extends React.PureComponent{
-//    const data = new Array(100).fill({
-//       title: 'Item',
-//    });
-// }
 
 export const StudioCityLogo = (props) => (
    <Icon {...props} name='studiocitylogo' pack='assets' />
 );
+
+const ProfileIcon = (props) => (<Icon {...props} name='person-outline' />);
+
 
 /* Popular Screen */
 const PopularFeedScreen = ({ navigation }) => {
 
    /* TODO include profile picture, name, username, & time since post, elipses option */
    const renderItemHeader = (headerProps, info) => (
-      <View {...headerProps}>
-         <Text category='h6'>
-            {info.item.title} {info.index + 1}
-         </Text>
-         {/* <ListItem
-         // {evaProps => <Text {...evaProps}>TITLE</Text>}
-            title={info.item.title} 
-            description = { guy => <Text>{info.index + 1}</Text> }
-         /> */}
+      <View {...headerProps} style={[headerProps.style, styles.headerContainer]}>
+         {/* todo: display avatar */}
+         <Avatar size='tiny' source={require('../../assets/images/gorilla.jpg')}/>
+         <View>
+            <Text category='s2'> Leon {info.item.title} {info.index + 1} </Text>
+            <Text category='s2'> @leonbarrett </Text>
+         </View>
       </View>
    );
 
    const renderItemFooter = (footerProps) => (
-      <Text {...footerProps}>
-         By Wikipedia
-      </Text>
+         <View {...footerProps} style={[footerProps.style, styles.footerContainer]}>
+           <Button
+             style={styles.footerControl}
+             size='small'
+             status='basic'>
+             heart
+           </Button>
+           <Button
+             style={styles.footerControl}
+             size='small'>
+             comment
+           </Button>
+           <Button
+             style={styles.footerControl}
+             size='small'
+             status='basic'>
+             donate
+           </Button>
+           <Button
+             style={styles.footerControl}
+             size='small'>
+             share
+           </Button>
+         </View>
    );
 
    const renderItem = (info) => (
@@ -74,20 +91,33 @@ const PopularFeedScreen = ({ navigation }) => {
 }
 export default PopularFeedScreen;
 
-/* styles */
+
 const styles = StyleSheet.create({
+   /* align footer icons in an evenly spaced row */
+   footerContainer: {
+     flexDirection: 'row',
+     justifyContent: 'space-between',
+   },
+   // individual margin on footer icons
+   footerControl: {
+     marginHorizontal: 0,
+   },
+   headerContainer: {
+      flexDirection: 'row',
+      justifyContent: 'flex-start',
+    },
    /* container around entire page */
-   container: {
-      /* maxHeight: ... */
-   },
+   //    container: {
+   //       /* maxHeight: ... */
+   //    },
    /* container around the scroll view */
-   contentContainer: {
-      // paddingVertical: 4,
-      // paddingHorizontal: 0,
-   },
+   //    contentContainer: {
+   //       // paddingVertical: 4,
+   //       // paddingHorizontal: 0,
+   //    },
    /* container on each item */
-   item: {
-      // marginVertical: 1, // space between top and bottom of posts
-      // marginHorizontal: 50
-   },
-});
+      // item: {
+      //    // marginVertical: 1, // space between top and bottom of posts
+      //    // marginHorizontal: 50
+      // },
+ });
