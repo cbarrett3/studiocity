@@ -9,7 +9,8 @@ import { Layout, Button, Icon, Card, List, Text, Avatar } from '@ui-kitten/compo
 
 /* DUMMY DATA */
 const data = new Array(100).fill({
-   title: 'Item',
+   title: 'Post',
+   type: 'text'
 });
 
 
@@ -25,12 +26,21 @@ const PopularFeedScreen = ({ navigation }) => {
 
    /* TODO include profile picture, name, username, & time since post, elipses option */
    const renderItemHeader = (headerProps, info) => (
-      <View {...headerProps} style={[headerProps.style, styles.headerContainer]}>
-         {/* todo: display avatar */}
-         <Avatar size='tiny' source={require('../../assets/images/gorilla.jpg')}/>
-         <View>
-            <Text category='s2'> Leon {info.item.title} {info.index + 1} </Text>
-            <Text category='s2'> @leonbarrett </Text>
+      // flex direction : row
+      <View {...headerProps} style={[headerProps.style, styles.headerContainer]}> 
+         {/* this is header col 1 */}
+         {/* flex direction : row */}
+         <View style={styles.headerLeft}>
+            <Avatar size='large' source={require('../../assets/images/gorilla.jpg')}/>
+            <View style={styles.headerLeftText}>
+               <Text category='h6'> Leon Barrett </Text>
+               <Text style={styles.headerLeftHandle} category='s2'> @leonbarrett </Text>
+            </View>
+         </View>
+         {/* this is header col 2 */}
+         <View style={styles.headerRight}>
+            <Text category='s2'> 24 hr ago </Text>
+            <Text category='s2'> . . . </Text>
          </View>
       </View>
    );
@@ -65,15 +75,13 @@ const PopularFeedScreen = ({ navigation }) => {
    const renderItem = (info) => (
       <Card
          style={styles.item}
-         status='basic'
+         // status='basic'
          header={headerProps => renderItemHeader(headerProps, info)}
          footer={renderItemFooter}>
-         <Text>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-            a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged.
-         </Text>
+         {info.item.type == 'text' && <Text> {info.item.title} {info.index + 1} </Text> }
+         {info.item.type == 'image' && <Text> IMAGE </Text> }
+         {info.item.type == 'video' && <Text> VIDEO </Text> }
+         {info.item.type == 'song' && <Text> SONG </Text> }
       </Card>
    );
    return (
@@ -104,8 +112,24 @@ const styles = StyleSheet.create({
    },
    headerContainer: {
       flexDirection: 'row',
-      justifyContent: 'flex-start',
+      justifyContent: 'space-between',
     },
+    headerLeft: {
+       flexDirection: 'row',
+       justifyContent: 'flex-start'
+    },
+    headerLeftText: {
+      //  alignItems: 'center',
+      //  justifyContent: 'center'
+    },
+    headerLeftHandle: {
+      fontStyle: 'italic'
+    },
+    headerRight: {
+       flexDirection: 'row',
+       justifyContent: 'flex-end'
+    }
+
    /* container around entire page */
    //    container: {
    //       /* maxHeight: ... */
