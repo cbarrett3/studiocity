@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { StyleSheet, View, Image } from 'react-native';
 import { Layout, Button, Icon, Card, List, Text, Avatar } from '@ui-kitten/components';
 
