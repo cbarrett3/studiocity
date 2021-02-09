@@ -23,7 +23,7 @@ const PopularFeedScreen = ({ navigation }) => {
    const [isCurrentlyFetching, setIsCurrentlyFetching ] = React.useState(false);
 
    /* dummy data */
-   const [data, setData] = React.useState(new Array(200).fill({
+   const [data, setData] = React.useState(new Array(100).fill({
       title: 'Post',
       type: 'text'
    }));
@@ -51,7 +51,7 @@ const PopularFeedScreen = ({ navigation }) => {
 
    /* fetch fresh data feed */
    const fetchData = () => {
-      setData(React.useState(new Array(25).fill({
+      setData(React.useState(new Array(100).fill({
          title: 'Post',
          type: 'text'
       })))
@@ -63,7 +63,7 @@ const PopularFeedScreen = ({ navigation }) => {
    const onEndReached = (distanceFromEnd) => {
       // console.log("on end reached ", distanceFromEnd)
       // get next group of posts to render
-      const moreData = new Array(25).fill({
+      const moreData = new Array(50).fill({
          title: 'Post',
          type: 'text'
       });
@@ -101,10 +101,10 @@ const PopularFeedScreen = ({ navigation }) => {
                renderItem={({item, index}) => <PurePost item=                                
                {item} index={index} />}
                // extraData={refreshFeed} // tells post to re-render (pass something that changes to re-render)
-               initialNumToRender={50} // enough to fill up the screen but not too much more
+               initialNumToRender={10} // enough to fill up the screen but not too much more
                ListEmptyComponent={<View><Text>you have no posts to look at...make this prettier...</Text></View>}
-               // onEndReachedThreshold={.75} // distance from bottom that triggers onEndReached callback
-               // onEndReached={onEndReached} // fetch next group of posts (TODO: can't use that async function as a callback)
+               onEndReachedThreshold={.75} // distance from bottom that triggers onEndReached callback
+               onEndReached={onEndReached} // fetch next group of posts (TODO: can't use that async function as a callback)
                // onRefresh={onRefresh} // fetch new feed (TODO: can't use that async function as a callback)
                refreshing={isCurrentlyFetching} // boolean
                keyExtractor={(item, index) => String(index)} // helps w/ caching by setting index of array as the key
