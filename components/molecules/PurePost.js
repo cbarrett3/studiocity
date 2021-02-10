@@ -1,3 +1,10 @@
+/* 
+Name: PurePost.js
+Description: Class Component Version of Post.js, and not currently being used in the application.
+Other Notes: Optimized with PureComponent so it doesn't unnecessarily re-render while scrolling
+Author: Connor Barrett
+*/
+
 import { PureComponent } from "react";
 import React, { memo, useMemo } from 'react';
 import { StyleSheet, FlatList, View, Image, RefreshControl } from 'react-native';
@@ -7,7 +14,7 @@ import { Layout, Button, Icon, Card, List, Text, Avatar } from '@ui-kitten/compo
 class PurePost extends PureComponent {
    
    render() {
-     console.log('post', this.props.index)
+   //   console.log('post', this.props.index)
      const {item, index} = this.props;
      const renderItemHeader = (headerProps, info) => (
       // flex direction : row

@@ -1,3 +1,10 @@
+/* 
+Name: PopularFeed.js
+Description: Component for the default main screen within BottomTabNavigation
+Key Parent Components:
+Key Child Components: Post.js
+*/
+
 import React, { useMemo } from 'react';
 import { StyleSheet, FlatList, View, Image, RefreshControl } from 'react-native';
 import { Layout, Button, Icon, Card, List, Text, Avatar } from '@ui-kitten/components';
@@ -38,6 +45,10 @@ const PopularFeedScreen = ({ navigation }) => {
 
    /* memoized post data */
    const memoizedPostData = useMemo(() => Post, [data]);
+
+   const postComponent = () => {
+      return <Post/>
+   }
 
    const purepost = () => {<PurePost/>}
 
@@ -92,14 +103,16 @@ const PopularFeedScreen = ({ navigation }) => {
    return (
       <Layout style={styles.container}>
          {/* {listComponent}  */}
+         {/* {console.log(data)} */}
          <List
                style={styles.container}
                contentContainerStyle={styles.contentContainer}
                data={data} // plain array
                // renderItem={Post} // takes an item from data and renders it into the list
-               // renderItem={purepost} // takes an item from data and renders it into the list
-               renderItem={({item, index}) => <PurePost item=                                
-               {item} index={index} />}
+               renderItem={({item, index}) => <Post item= {item} index={index}/>}
+
+               // below is working well and uses purecomponent for post aka purepost
+               // renderItem={({item, index}) => <PurePost item= {item} index={index} />}
                // extraData={refreshFeed} // tells post to re-render (pass something that changes to re-render)
                initialNumToRender={10} // enough to fill up the screen but not too much more
                ListEmptyComponent={<View><Text>you have no posts to look at...make this prettier...</Text></View>}

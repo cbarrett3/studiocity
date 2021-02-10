@@ -1,15 +1,20 @@
+/* 
+Name: Post.js
+Description: Component for Render Items within Flatlist 'feeds' like PopularFeed.js
+Key Parent Components: PopularFeed.js
+Key Child Components: N/A
+*/
+
 import React, { memo, useMemo } from 'react';
 import { StyleSheet, View, Image } from 'react-native';
 import { Layout, Button, Icon, Card, List, Text, Avatar } from '@ui-kitten/components';
 
-const Post = (info) => {
-   console.log('post child render number: ', info.index)
-   /* TODO include profile picture, name, username, & time since post, elipses option */
+const Post = React.memo((info) => {
    const renderItemHeader = (headerProps, info) => (
       // flex direction : row
       <View {...headerProps} style={[headerProps.style, styles.headerContainer]}>
          {/* this is header col 1 */}
-         {/* flex direction : row */}
+         {/* flex direction is row */}
          <View style={styles.headerLeft}>
             <Avatar size='large' source={require('../../assets/images/gorilla.jpg')} />
             <View style={styles.headerLeftText}>
@@ -21,9 +26,6 @@ const Post = (info) => {
          <View style={styles.headerRight}>
             <Text category='s2'> 24 hrs ago </Text>
             <Icon style={styles.icon} name='more-horizontal-outline'  fill='#6C6C6C'/> 
-            {/* <DotIcon/> */}
-            {/* <Text category='s2'> . . . </Text> */}
-            {/* <ForwardIcon/> */}
          </View>
       </View>
    );
@@ -34,16 +36,8 @@ const Post = (info) => {
          <Icon style={styles.interactIcons} name='message-circle-outline' fill='#6C6C6C'/> 
          <Icon style={styles.interactIcons} name='heart-outline' fill='#FF5D4F'/> 
          <Icon style={styles.interactIcons} name='share-outline' fill='#6C6C6C'/> 
-         {/* <Button
-            style={styles.footerControl}
-            size='small'
-            status='basic'>
-            donate
-              </Button> */}
       </View>
    );
-
-   // return useMemo(()=> {
       return (
          <Card
             style={styles.item}
@@ -55,17 +49,11 @@ const Post = (info) => {
             {info.item.type == 'song' && <Text> SONG </Text>}
          </Card>
       )
-   // }, [info])
-}
-
-// function arePropsEqual(prevProps, nextProps) {
-//    /*
-//    return true if passing nextProps to render would return
-//    the same result as passing prevProps to render,
-//    otherwise return false
-//    */
-//    return nextProps.item.attribute.name===prevProps.item.attribute.name
-// }
+},
+   (prevProps, nextProps) => {
+      return prevProps.item === nextProps.item
+   }
+);
 
 export default Post;
 
