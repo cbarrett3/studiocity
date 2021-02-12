@@ -7,7 +7,7 @@ Key Child Components: Post.js
 
 import React, { useMemo } from 'react';
 import { StyleSheet, FlatList, View, Image, RefreshControl } from 'react-native';
-import { Layout, Button, Icon, Card, List, Text, Avatar } from '@ui-kitten/components';
+import { Layout, Button, Icon, Card, List, Text, Avatar, Divider } from '@ui-kitten/components';
 import Post from '../../components/molecules/Post'
 import PurePost from '../../components/molecules/PurePost'
 
@@ -57,21 +57,35 @@ const PopularFeedScreen = ({ navigation }) => {
       setData(data.concat(moreData));
    }
 
+   const ItemSeparator = () => {
+      return (
+        <Layout
+          style={{
+            height: .35,
+            width: "100%",
+            backgroundColor: "#6C6C6C",
+          }}
+        />
+      );
+    }
+
    return (
       <Layout style={styles.container}>
          <List
-               style={styles.container}
-               contentContainerStyle={styles.contentContainer}
+               // style={styles.container}
+               // contentContainerStyle={styles.contentContainer}
                data={data}
                renderItem={({item, index}) => <Post item= {item} index={index}/>}
                // extraData={refreshFeed} // tells post to re-render (pass something that changes to re-render)
                initialNumToRender={25} // enough to fill up the screen but not too much more
-               ListEmptyComponent={<View><Text>you have no posts to look at...make this prettier...</Text></View>}
+               ListEmptyComponent={<Layout><Text>you have no posts to look at...make this prettier...</Text></Layout>}
                onEndReachedThreshold={.75} // distance from bottom that triggers onEndReached callback
                onEndReached={onEndReached} // fetch next group of posts (TODO: can't use that async function as a callback)
                // onRefresh={onRefresh} // fetch new feed (TODO: can't use that async function as a callback)
                refreshing={isCurrentlyFetching} // boolean
                keyExtractor={(item, index) => String(index)} // helps w/ caching by setting index of array as the key
+               // ItemSeparatorComponent={ItemSeparator}
+               ItemSeparatorComponent={Divider}
          />
       </Layout>
    )
