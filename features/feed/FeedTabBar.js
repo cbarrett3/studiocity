@@ -82,10 +82,11 @@ const styles = StyleSheet.create({
       marginTop: '28%'
    },
    logo: {
-      // width: 24,
-      width: '15%',
-      // height: 31,
-      height: '35%',
+      width: 25,
+      // width: '15%',
+      height: 33,
+      // height: '100%',
+      // height: '35%',
       marginTop: '32%'
    }
  });

@@ -29,7 +29,7 @@ const ForwardIcon = (props) => (<Icon {...props} name='arrow-ios-forward' />);
 const DrawerContent = ({ navigation, state }) => (
    <ThemedAwesomeDrawer selectedIndex={new IndexPath(state.index)} onSelect={index => navigation.navigate(state.routeNames[index.row])}>
       <DrawerItem
-         title={<Text category='h6'>Home</Text>} // title={evaProps => <Text ...
+         title={<Text category='h6'>Home</Text>}
          accessoryLeft={HomeIcon}
          accessoryRight={ForwardIcon} 
       />
@@ -37,10 +37,10 @@ const DrawerContent = ({ navigation, state }) => (
          title={<Text category='h6'>Settings</Text>}
          accessoryLeft={SettingsIcon}
          accessoryRight={ForwardIcon} />
-      <DrawerItem
+      {/* <DrawerItem
          title={<Text category='h6'>Forgot Password</Text>}
          accessoryLeft={ForgotPasswordIcon}
-         accessoryRight={ForwardIcon} />
+         accessoryRight={ForwardIcon} /> */}
       <DrawerItem
          title={<Text category='h6'>Change Password</Text>}
          accessoryLeft={ChangePasswordIcon}
@@ -56,7 +56,7 @@ const DrawerNav = createDrawerNavigator();
 export const MainDrawerNavigator = () => {
    return (
       <DrawerNav.Navigator drawerContent={props => <DrawerContent {...props} />}>
-         <DrawerNav.Screen name="Home" component={HomeBottomTabNavigator} options={{title:"Home"}} />
+         <DrawerNav.Screen name="Home" component={HomeBottomTabNavigator} />
          <DrawerNav.Screen name="Settings" component={SettingsScreen} />
          <DrawerNav.Screen name="Password Forget" component={PasswordForgetScreen} />
          <DrawerNav.Screen name="Password Change" component={PasswordChangeScreen} />

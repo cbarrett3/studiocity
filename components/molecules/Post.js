@@ -43,10 +43,12 @@ const Post = React.memo((info) => {
             style={styles.item} 
             header={headerProps => renderItemHeader(headerProps, info)}
             footer={renderItemFooter}>
+               {/* {console.log(info.item.title)} */}
             {info.item.type == 'text' && <Text style={styles.body}> {info.item.title} {info.index + 1} </Text>}
             {info.item.type == 'image' && <Text> IMAGE </Text>}
             {info.item.type == 'video' && <Text> VIDEO </Text>}
             {info.item.type == 'song' && <Text> SONG </Text>}
+            <Text style={styles.body}> {info.item.title} </Text>
          </Card>
       )
 },
