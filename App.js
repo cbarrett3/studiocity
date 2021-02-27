@@ -18,7 +18,7 @@ import { FeatherIconsPack } from './assets/icons/FeatherIconsPack';
 import { MaterialIconsPack } from './assets/icons/MaterialIconsPack';
 import { AssetIconsPack } from './assets/icons/AssetIconsPack';
 /* other components */
-import { AppStackNavigator } from './navigation/AppStackNavigator';
+import { AppStackNavigator } from './navigation/level-1/AppStackNavigator';
 
 // testing with git...
 // again

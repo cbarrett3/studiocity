@@ -4,8 +4,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 /* other components */
-import { AuthStackNavigator } from './AuthStackNavigator';
-import { MainDrawerNavigator } from './MainDrawerNavigator';
+import { AuthStackNavigator } from '../level-2/AuthStackNavigator';
+import { MainDrawerNavigator } from '../level-2/MainDrawerNavigator';
 
 const Stack = createStackNavigator();
 

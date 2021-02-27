@@ -14,9 +14,9 @@ const AwesomeDrawer = (props) => {
 export const ThemedAwesomeDrawer = withStyles(AwesomeDrawer, (theme) => ({
   custom: {
     // paddingTop: '15.2%'
-    paddingTop: '20%'
+    paddingTop: '20%',
     // headerPaddingVertical: 1000,
     // backgroundColor: 'blue'
-    // backgroundColor: theme['color-primary-default']
+   //  backgroundColor: theme['color-primary-default']
   },
 }));

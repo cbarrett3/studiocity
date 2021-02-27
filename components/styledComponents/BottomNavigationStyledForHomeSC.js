@@ -2,7 +2,7 @@ import React from 'react';
 import { BottomNavigation } from '@ui-kitten/components';
 import { withStyles } from '@ui-kitten/components';
 
-const AwesomeBottomNavigation = (props) => {
+const BottomNavigationStyledForHomeSC = (props) => {
   const { eva, style, ...restProps } = props;
 
   return (
@@ -11,7 +11,7 @@ const AwesomeBottomNavigation = (props) => {
 };
 
 // with styles allows us to create styles like styleSheet but with our current theme
-export const ThemedAwesomeBottomNavigation = withStyles(AwesomeBottomNavigation, (theme) => ({
+export const BottomNavigationStyledForHome = withStyles(BottomNavigationStyledForHomeSC, (theme) => ({
   theme: {
     paddingBottom: '8%',
     indicatorHeight: 1
