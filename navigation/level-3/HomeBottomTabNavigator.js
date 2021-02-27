@@ -13,6 +13,8 @@ import Profile from '../../features/profile/Profile';
 import { ThemedAwesomeBottomNavigation } from '../../components/styledComponents/AwesomeBottomNavigation';
 import { FeedTabBarNavigator } from '../level-4/FeedTabBarNavigator';
 import { ConnectStackNavigator } from '../level-4/ConnectStackNavigator';
+import { DMStackNavigator } from '../level-4/DMStackNavigator';
+import { ProfileStackNavigator } from '../level-4/ProfileStackNavigator';
 import { HomeBottomTab } from './HomeBottomTab';
 
 /* icons */
@@ -38,37 +40,6 @@ const BottomTabBar = ({ navigation, state }) => {
    )
 };
 
-
-// TESTING (BRING THESE TO DIFFERENT FILES PROBABLY)
-const DMStack = createStackNavigator();
-function DMStackScreen() {
-   return (
-     <DMStack.Navigator>
-       <DMStack.Screen name="DM" component={DM} />
-       {/* <DMStack.Screen name="Profile" component={ProfileScreen} /> */}
-     </DMStack.Navigator>
-   );
- }
-// const ConnectStack = createStackNavigator();
-// function ConnectStackScreen() {
-//    return (
-//      <ConnectStack.Navigator>
-//        <ConnectStack.Screen name="Connect" component={Connect} />
-//      </ConnectStack.Navigator>
-//    );
-//  }
-
-const ProfileStack = createStackNavigator();
-function ProfileStackScreen() {
-   return (
-     <ConnectStack.Navigator>
-       <ConnectStack.Screen name="My Profile" component={Profile} />
-       {/* <DMStack.Screen name="Profile" component={ProfileScreen} /> */}
-     </ConnectStack.Navigator>
-   );
- }
-
-
 // 3rd Level: Bottom Tab Navigation nested within Drawer
 const BottomTab = createBottomTabNavigator();
 export const HomeBottomTabNavigator = () => {
@@ -76,8 +47,8 @@ export const HomeBottomTabNavigator = () => {
       <BottomTab.Navigator tabBar={props => <HomeBottomTab {...props} />}>
          <BottomTab.Screen name='FEED' component={FeedTabBarNavigator} options={{title:"FEED", tabBarIcon: FeedIcon}} />
          <BottomTab.Screen name='CONNECT' component={ConnectStackNavigator} options={{title:"CONNECT", tabBarIcon: ConnectIcon}}/>
-         <BottomTab.Screen name='DM' component={DMStackScreen} options={{title:"DM", tabBarIcon: DirectMessageIcon}}/>
-         <BottomTab.Screen name='PROFILE' component={ProfileStackScreen} options={{title:"PROFILE", tabBarIcon: ProfileIcon}}/>
+         <BottomTab.Screen name='DM' component={DMStackNavigator} options={{title:"DM", tabBarIcon: DirectMessageIcon}}/>
+         <BottomTab.Screen name='PROFILE' component={ProfileStackNavigator} options={{title:"PROFILE", tabBarIcon: ProfileIcon}}/>
       </BottomTab.Navigator>
    );
 };

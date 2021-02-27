@@ -16,7 +16,7 @@ const Post = React.memo((info) => {
          {/* this is header col 1 */}
          {/* flex direction is row */}
          <Layout style={styles.headerLeft}>
-            <Avatar size='large' shape='round' source={require('../../assets/images/gorilla.jpg')} style={styles.avatarStyle}/> 
+            <Avatar size='large' shape='round' source={require('../assets/images/gorilla.jpg')} style={styles.avatarStyle}/> 
             <Layout style={styles.headerLeftText}>
                <Text category='s1'> Leon Barrett </Text>
                <Text category='s1' style={styles.headerLeftHandle}> @leonbarrett </Text>

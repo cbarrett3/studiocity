@@ -6,11 +6,12 @@ import React from 'react';
 import { StyleSheet, Image } from 'react-native';
 import { Tab, Button, Icon, Layout } from '@ui-kitten/components';
 import { ThemedAwesomeTabBar } from '../../components/styledComponents/AwesomeTabBar';
+import { ThemedAwesomeMenuIcon } from '../../components/styledComponents/AwesomeMenuIcon';
 import { DrawerActions } from '@react-navigation/native';
 
 /* icons */
 const MenuIcon = (props) => (
-   <Icon {...props} name='menu-2-outline' />
+   <Icon {...props} style={[props.style, { width: 28, height: 28 }]} name='menu-2-outline' />
 );
 
 export const FeedTabBar = (props) => {
@@ -36,9 +37,9 @@ export const FeedTabBar = (props) => {
       <Layout style={styles.headerContainer}>
          <Layout style={styles.menuLayout}>
             <Button
-               style={styles.menu}
+               style={styles.menuIcon}
                appearance='ghost'
-               size='giant'
+               // size='giant'
                accessoryLeft={MenuIcon}
                onPress={() => props.navigation.dispatch(DrawerActions.toggleDrawer())}
             />
@@ -77,12 +78,12 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center', 
    },
-   menu: {
-      marginTop: '28%'
+   menuIcon: {
+      marginTop: '28%',
    },
    logo: {
-      width: 25,
-      height: 33,
-      marginTop: '32%'
+      width: 24,
+      height: 31,
+      marginTop: '28%'
    }
  });

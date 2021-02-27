@@ -9,8 +9,8 @@ Key Child Components: Post.js
 import React, { useMemo, useState } from 'react';
 import { StyleSheet, FlatList, View, Image, RefreshControl } from 'react-native';
 import { Layout, Button, Icon, Card, List, Text, Avatar, Divider } from '@ui-kitten/components';
-import Post from '../../components/molecules/Post'
-import PurePost from '../../components/molecules/PurePost'
+import Post from '../../components/Post'
+import PurePost from '../../components/PurePost'
 
 /* SUDO LOGIC FOR DISPLAY: 
 1. Display list of content

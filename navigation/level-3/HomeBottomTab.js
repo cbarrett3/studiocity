@@ -8,30 +8,29 @@ import { ThemedAwesomeBottomNavigation } from '../../components/styledComponents
 
 export const HomeBottomTab = (props) => {
 
-  const onSelect = (index) => {
-    const selectedTabRoute = props.state.routeNames[index];
-    props.navigation.navigate(selectedTabRoute);
-  };
+   const onSelect = (index) => {
+      const selectedTabRoute = props.state.routeNames[index];
+      props.navigation.navigate(selectedTabRoute);
+   };
 
-  const createNavigationTabForRoute = (route) => {
-    const { options } = props.descriptors[route.key];
-    return (
-      <BottomNavigationTab
-        key={route.key}
-        title={options.title}
-        icon={options.tabBarIcon}
-      />
-    );
-  };
+   const createNavigationTabForRoute = (route) => {
+      const { options } = props.descriptors[route.key];
+      return (
+         <BottomNavigationTab
+            key={route.key}
+            title={options.title}
+            icon={options.tabBarIcon}
+         />
+      );
+   };
 
-  return (
-   <>
-      <Divider/>
-      <ThemedAwesomeBottomNavigation
-         selectedIndex={props.state.index}
-         onSelect={onSelect}>
-         {props.state.routes.map(createNavigationTabForRoute)}
-      </ThemedAwesomeBottomNavigation>
-   </>
-  );
+   return (
+      <>
+         <ThemedAwesomeBottomNavigation
+            selectedIndex={props.state.index}
+            onSelect={onSelect}>
+            {props.state.routes.map(createNavigationTabForRoute)}
+         </ThemedAwesomeBottomNavigation>
+      </>
+   );
 };

@@ -22,7 +22,7 @@ class PurePost extends PureComponent {
          {/* this is header col 1 */}
          {/* flex direction : row */}
          <View style={styles.headerLeft}>
-            <Avatar size='large' source={require('../../assets/images/gorilla.jpg')} />
+            <Avatar size='large' source={require('../assets/images/gorilla.jpg')} />
             <View style={styles.headerLeftText}>
                <Text category='h6'> Leon Barrett </Text>
                <Text style={styles.headerLeftHandle} category='s2'> @leonbarrett </Text>

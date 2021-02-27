@@ -14,7 +14,7 @@ import { ThemedAwesomeDrawer } from '../../components/styledComponents/AwesomeDr
 import { HomeBottomTabNavigator } from '../level-3/HomeBottomTabNavigator'
 
 /* TODO: refactor and get this main drawer working */
-import { MainDrawer } from '../../features/general/MainDrawer';
+import { MainDrawer } from './MainDrawer';
 
 /* icons */
 const HomeIcon = (props) => (<Icon {...props} name='home-outline' />);
@@ -58,7 +58,7 @@ export const MainDrawerNavigator = () => {
       <DrawerNav.Navigator drawerContent={props => <DrawerContent {...props} />}>
          <DrawerNav.Screen name="Home" component={HomeBottomTabNavigator} />
          <DrawerNav.Screen name="Settings" component={SettingsScreen} />
-         <DrawerNav.Screen name="Password Forget" component={PasswordForgetScreen} />
+         {/* <DrawerNav.Screen name="Password Forget" component={PasswordForgetScreen} /> */}
          <DrawerNav.Screen name="Password Change" component={PasswordChangeScreen} />
          <DrawerNav.Screen name="Admin" component={AdminScreen} />
       </DrawerNav.Navigator>
