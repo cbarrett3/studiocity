@@ -5,16 +5,16 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 /* ui-kitten */
 import { Text, DrawerItem, IndexPath, Icon } from '@ui-kitten/components';
 /* screens */
-import SettingsScreen from '../features/settings/Settings';
-import AdminScreen from '../features/settings/Admin';
-import PasswordForgetScreen from '../features/auth/PasswordForget';
-import PasswordChangeScreen from '../features/settings/PasswordChange';
+import SettingsScreen from '../../features/settings/Settings';
+import AdminScreen from '../../features/settings/Admin';
+import PasswordForgetScreen from '../../features/auth/PasswordForget';
+import PasswordChangeScreen from '../../features/settings/PasswordChange';
 /* other components */
-import { ThemedAwesomeDrawer } from '../components/styledComponents/AwesomeDrawer'
-import { HomeBottomTabNavigator } from './HomeBottomTabNavigator'
+import { ThemedAwesomeDrawer } from '../../components/styledComponents/AwesomeDrawer'
+import { HomeBottomTabNavigator } from '../level-3/HomeBottomTabNavigator'
 
 /* TODO: refactor and get this main drawer working */
-import { MainDrawer } from '../features/general/MainDrawer';
+import { MainDrawer } from '../../features/general/MainDrawer';
 
 /* icons */
 const HomeIcon = (props) => (<Icon {...props} name='home-outline' />);

@@ -6,13 +6,14 @@ import { createStackNavigator } from '@react-navigation/stack'
 /* ui-kitten */
 import { BottomNavigationTab, Icon } from '@ui-kitten/components';
 /* screens */
-import Connect from '../features/connect/Connect';
-import DM from '../features/dm/DM';
-import Profile from '../features/profile/Profile';
+import Connect from '../../features/connect/Connect';
+import DM from '../../features/dm/DM';
+import Profile from '../../features/profile/Profile';
 /* other components */
-import { ThemedAwesomeBottomNavigation } from '../components/styledComponents/AwesomeBottomNavigation';
-import { FeedTabBarNavigator } from './FeedTabBarNavigator';
-import { HomeBottomTab } from '../features/general/HomeBottomTab';
+import { ThemedAwesomeBottomNavigation } from '../../components/styledComponents/AwesomeBottomNavigation';
+import { FeedTabBarNavigator } from '../level-4/FeedTabBarNavigator';
+import { ConnectStackNavigator } from '../level-4/ConnectStackNavigator';
+import { HomeBottomTab } from './HomeBottomTab';
 
 /* icons */
 const FeedIcon = (props) => (<Icon {...props} name='radio-outline' />);
@@ -38,7 +39,7 @@ const BottomTabBar = ({ navigation, state }) => {
 };
 
 
-// TESTING
+// TESTING (BRING THESE TO DIFFERENT FILES PROBABLY)
 const DMStack = createStackNavigator();
 function DMStackScreen() {
    return (
@@ -48,15 +49,25 @@ function DMStackScreen() {
      </DMStack.Navigator>
    );
  }
-const ConnectStack = createStackNavigator();
-function ConnectStackScreen() {
+// const ConnectStack = createStackNavigator();
+// function ConnectStackScreen() {
+//    return (
+//      <ConnectStack.Navigator>
+//        <ConnectStack.Screen name="Connect" component={Connect} />
+//      </ConnectStack.Navigator>
+//    );
+//  }
+
+const ProfileStack = createStackNavigator();
+function ProfileStackScreen() {
    return (
      <ConnectStack.Navigator>
-       <ConnectStack.Screen name="Connect" component={Connect} />
+       <ConnectStack.Screen name="My Profile" component={Profile} />
        {/* <DMStack.Screen name="Profile" component={ProfileScreen} /> */}
      </ConnectStack.Navigator>
    );
  }
+
 
 // 3rd Level: Bottom Tab Navigation nested within Drawer
 const BottomTab = createBottomTabNavigator();
@@ -64,9 +75,9 @@ export const HomeBottomTabNavigator = () => {
    return (
       <BottomTab.Navigator tabBar={props => <HomeBottomTab {...props} />}>
          <BottomTab.Screen name='FEED' component={FeedTabBarNavigator} options={{title:"FEED", tabBarIcon: FeedIcon}} />
-         <BottomTab.Screen name='CONNECT' component={ConnectStackScreen} options={{title:"CONNECT", tabBarIcon: ConnectIcon}}/>
+         <BottomTab.Screen name='CONNECT' component={ConnectStackNavigator} options={{title:"CONNECT", tabBarIcon: ConnectIcon}}/>
          <BottomTab.Screen name='DM' component={DMStackScreen} options={{title:"DM", tabBarIcon: DirectMessageIcon}}/>
-         <BottomTab.Screen name='PROFILE' component={Profile} options={{title:"PROFILE", tabBarIcon: ProfileIcon}}/>
+         <BottomTab.Screen name='PROFILE' component={ProfileStackScreen} options={{title:"PROFILE", tabBarIcon: ProfileIcon}}/>
       </BottomTab.Navigator>
    );
 };

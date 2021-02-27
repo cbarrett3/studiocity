@@ -1,4 +1,7 @@
-/* UI Kitten Component for Home Bottom Tabs */
+/* Navigator Helper Component: 
+   ---- Provides Home Bottom Tabs Functionality
+   ---> Passed into BottomTab.Navigator as a tabBar prop in HomeBottomTabNavigator.js
+*/
 import React from 'react';
 import { BottomNavigationTab, Divider } from '@ui-kitten/components';
 import { ThemedAwesomeBottomNavigation } from '../../components/styledComponents/AwesomeBottomNavigation';

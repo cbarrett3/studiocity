@@ -5,10 +5,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 /* ui-kitten */
 import { Icon } from '@ui-kitten/components';
 /* screens */
-import LandingScreen from '../features/auth/Landing';
-import SignInScreen from '../features/auth/SignIn';
-import SignUpScreen from '../features/auth/SignUp';
-import PasswordForgetScreen from '../features/auth/PasswordForget';
+import LandingScreen from '../../features/auth/Landing';
+import SignInScreen from '../../features/auth/SignIn';
+import SignUpScreen from '../../features/auth/SignUp';
+import PasswordForgetScreen from '../../features/auth/PasswordForget';
 /* other components */
 /* icons */
 

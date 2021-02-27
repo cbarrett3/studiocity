@@ -1,8 +1,8 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import PopularFeedScreen from '../features/feed/PopularFeed';
-import FollowingFeedScreen from '../features/feed/FollowingFeed';
-import { FeedTabBar } from '../features/feed/FeedTabBar';
+import PopularFeedScreen from '../../features/feed/PopularFeed';
+import FollowingFeedScreen from '../../features/feed/FollowingFeed';
+import { FeedTabBar } from './FeedTabBar';
 
 const TopTab = createMaterialTopTabNavigator();
 
