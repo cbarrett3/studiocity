@@ -10,7 +10,7 @@ import Connect from '../../features/connect/Connect';
 import DM from '../../features/dm/DM';
 import Profile from '../../features/profile/Profile';
 /* other components */
-import { ThemedAwesomeBottomNavigation } from '../../components/styledComponents/AwesomeBottomNavigation';
+import { ThemedAwesomeBottomNavigation } from '../../components/styledComponents/BottomNavigationStyledForHomeSC';
 import { FeedTabBarNavigator } from '../level-4/FeedTabBarNavigator';
 import { ConnectStackNavigator } from '../level-4/ConnectStackNavigator';
 import { DMStackNavigator } from '../level-4/DMStackNavigator';

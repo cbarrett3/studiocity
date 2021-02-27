@@ -4,15 +4,13 @@
 */
 import React from 'react';
 import { BottomNavigationTab, Divider } from '@ui-kitten/components';
-import { ThemedAwesomeBottomNavigation } from '../../components/styledComponents/AwesomeBottomNavigation';
+import { BottomNavigationStyledForHome } from '../../components/styledComponents/BottomNavigationStyledForHomeSC';
 
 export const HomeBottomTab = (props) => {
-
    const onSelect = (index) => {
       const selectedTabRoute = props.state.routeNames[index];
       props.navigation.navigate(selectedTabRoute);
    };
-
    const createNavigationTabForRoute = (route) => {
       const { options } = props.descriptors[route.key];
       return (
@@ -23,14 +21,13 @@ export const HomeBottomTab = (props) => {
          />
       );
    };
-
    return (
       <>
-         <ThemedAwesomeBottomNavigation
+         <BottomNavigationStyledForHome
             selectedIndex={props.state.index}
             onSelect={onSelect}>
             {props.state.routes.map(createNavigationTabForRoute)}
-         </ThemedAwesomeBottomNavigation>
+         </BottomNavigationStyledForHome>
       </>
    );
 };

@@ -1,10 +1,8 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
 import { TabBar } from '@ui-kitten/components';
 import { withStyles } from '@ui-kitten/components';
-import {ThemedAwesomeTopNavigation } from './AwesomeTopNavigation'
 
-const AwesomeTabBar = (props) => {
+const TabBarStyledForFeedSC = (props) => {
   const { eva, style, ...restProps } = props;
   return (
       <TabBar {...restProps} style={[eva.style.theme, style]} />
@@ -12,9 +10,9 @@ const AwesomeTabBar = (props) => {
 };
 
 // with styles allows us to create styles like styleSheet but with our current theme
-export const ThemedAwesomeTabBar = withStyles(AwesomeTabBar, (theme) => ({
+export const TabBarStyledForFeed = withStyles(TabBarStyledForFeedSC, (theme) => ({
   theme: {
-   //  paddingTop: '4%'
-    // backgroundColor: theme['color-primary-default']
+    paddingTop: 0,
+   //  backgroundColor: theme['color-primary-default'],
   },
 }));

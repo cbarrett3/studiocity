@@ -5,6 +5,7 @@ import { withStyles } from '@ui-kitten/components';
 const AwesomeView = (props) => {
   const { eva, style, ...restProps } = props;
   return (
+   //  console.log(themeContext.theme)
     <View {...restProps} style={[eva.style.theme, style]} />
   );
 };

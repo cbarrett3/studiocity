@@ -1,6 +1,6 @@
 import React from 'react';
-import { Tab, Button, Icon, Layout, Input } from '@ui-kitten/components';
-import { StyleSheet, Image } from 'react-native';
+import { Button, Icon, Layout, Input } from '@ui-kitten/components';
+import { StyleSheet } from 'react-native';
 import { DrawerActions } from '@react-navigation/native';
 
 /* icons */
@@ -11,60 +11,39 @@ const MenuIcon = (props) => (
 export const ConnectHeader = (props) => {
    const [value, setValue] = React.useState('');
    return (
-      <>
          <Layout style={styles.headerContainer}>
-            <Layout style={styles.menuLayout}>
-               <Button
-                  style={styles.menuIcon}
-                  appearance='ghost'
-                  // size='giant'
-                  accessoryLeft={MenuIcon}
-                  onPress={() => props.navigation.dispatch(DrawerActions.toggleDrawer())}
-               />
-            </Layout>
+            <Button
+               appearance='ghost'
+               accessoryLeft={MenuIcon}
+               onPress={() => props.navigation.dispatch(DrawerActions.toggleDrawer())}
+            />
             <Layout style={styles.searchLayout}>
-               {/* <Image source={require('../../assets/images/studiocitylogo.png')} style={styles.logo}></Image>
-                */}
                <Input
                   placeholder='Search'
                   value={value}
                   onChangeText={nextValue => setValue(nextValue)}
                />
             </Layout>
-            <Layout style={styles.emptyLayout}>
-            </Layout>
+            <Button
+               appearance='ghost'
+               accessoryLeft={NotificationIcon}
+            />
          </Layout>
-         {/* <Divider/> */}
-      </>
    );
 }
+
+const NotificationIcon = (props) => (
+   <Icon {...props} style={[props.style, { width: 28, height: 28 }]} name='bell-outline' />
+);
 
 const styles = StyleSheet.create({
    headerContainer: {
       flexDirection: 'row',
-      //   height: '10%',
-      display: 'flex',
-      color: 'white'
-   },
-   menuLayout: {
-      flex: 1,
-      justifyContent: 'center', // vertical
-      alignItems: 'flex-start', // horizontal
+      justifyContent: 'space-between',
+      paddingTop: 35,
    },
    searchLayout: {
-      marginTop: '10.5%',
-      alignItems: 'center',
+      marginTop: 7,
+      width: '60%',
    },
-   emptyLayout: {
-      flex: 1,
-      alignItems: 'center',
-   },
-   menuIcon: {
-      marginTop: '21.5%',
-   },
-   logo: {
-      width: 24,
-      height: 31,
-      marginTop: '28%'
-   }
 });

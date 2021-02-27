@@ -8,7 +8,7 @@ const TopTab = createMaterialTopTabNavigator();
 
 export const FeedTabBarNavigator = () => (
   <TopTab.Navigator tabBar={props => <FeedTabBar {...props} />}>
-    <TopTab.Screen name="Popular" component={PopularFeedScreen} options={{title:"Popular"}} />
-    <TopTab.Screen name="Following" component={FollowingFeedScreen} options={{title:"Following"}}/>
+    <TopTab.Screen name="Popular" component={PopularFeedScreen} options={{title:"popular"}} />
+    <TopTab.Screen name="Following" component={FollowingFeedScreen} options={{title:"following"}}/>
   </TopTab.Navigator>
 );
