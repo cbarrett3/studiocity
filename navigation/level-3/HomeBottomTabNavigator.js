@@ -45,10 +45,10 @@ const BottomTab = createBottomTabNavigator();
 export const HomeBottomTabNavigator = () => {
    return (
       <BottomTab.Navigator tabBar={props => <HomeBottomTab {...props} />}>
-         <BottomTab.Screen name='FEED' component={FeedTabBarNavigator} options={{title:"FEED", tabBarIcon: FeedIcon}} />
-         <BottomTab.Screen name='CONNECT' component={ConnectStackNavigator} options={{title:"CONNECT", tabBarIcon: ConnectIcon}}/>
-         <BottomTab.Screen name='DM' component={DMStackNavigator} options={{title:"DM", tabBarIcon: DirectMessageIcon}}/>
-         <BottomTab.Screen name='PROFILE' component={ProfileStackNavigator} options={{title:"PROFILE", tabBarIcon: ProfileIcon}}/>
+         <BottomTab.Screen name='FEED' component={FeedTabBarNavigator} options={{title:"feed", tabBarIcon: FeedIcon}} />
+         <BottomTab.Screen name='CONNECT' component={ConnectStackNavigator} options={{title:"connect", tabBarIcon: ConnectIcon}}/>
+         <BottomTab.Screen name='DM' component={DMStackNavigator} options={{title:"dm", tabBarIcon: DirectMessageIcon}}/>
+         <BottomTab.Screen name='PROFILE' component={ProfileStackNavigator} options={{title:"profile", tabBarIcon: ProfileIcon}}/>
       </BottomTab.Navigator>
    );
 };

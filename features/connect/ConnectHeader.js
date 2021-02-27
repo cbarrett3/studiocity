@@ -21,7 +21,7 @@ export const ConnectHeader = (props) => {
          </Layout>
          <Button
             appearance='ghost'
-            accessoryLeft={NotificationIcon}
+            accessoryLeft={MapIcon}
          />
       </Layout>
    );
@@ -31,8 +31,8 @@ export const ConnectHeader = (props) => {
 const MenuIcon = (props) => (
    <Icon {...props} style={[props.style, { width: 28, height: 28 }]} name='menu-2-outline' />
 );
-const NotificationIcon = (props) => (
-   <Icon {...props} style={[props.style, { width: 24, height: 24 }]} name='bell-outline' />
+const MapIcon = (props) => (
+   <Icon {...props} style={[props.style, { width: 28, height: 28 }]} name='map-outline' />
 );
 
 const styles = StyleSheet.create({
