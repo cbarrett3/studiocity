@@ -50,7 +50,7 @@ const MenuIcon = (props) => (
    <Icon {...props} style={[props.style, { width: 28, height: 28 }]} name='menu-2-outline' />
 );
 const NotificationIcon = (props) => (
-   <Icon {...props} style={[props.style, { width: 28, height: 28 }]} name='bell-outline' />
+   <Icon {...props} style={[props.style, { width: 24, height: 24 }]} name='bell-outline' />
 );
 
 const styles = StyleSheet.create({
