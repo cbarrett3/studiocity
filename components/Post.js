@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
       height: 20
     },
     avatarStyle: {
-       borderColor: '#6C6C6C',
+       borderColor: 3 > 2 ? 'pink' : 'green',
        borderWidth: 1.5
     }
 });
