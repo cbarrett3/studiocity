@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
       paddingTop: 35,
    },
    logoLayout: {
-      marginTop: 7
+      paddingTop: 7
    },
    logo: {
       width: 21,

@@ -5,7 +5,7 @@ import { Layout, Button, Icon, Card, List, Text, Avatar, Divider } from '@ui-kit
 
 /* Connect screen */
 const Connect = ( {navigation }) => {
-   const initialData2 = new Array(3).fill({
+   const initialData2 = new Array(10).fill({
       primarySkill: 'Vocalist',
       type: 'text'
    })

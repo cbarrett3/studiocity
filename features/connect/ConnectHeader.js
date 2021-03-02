@@ -9,9 +9,10 @@ export const ConnectHeader = (props) => {
       <Layout style={styles.headerContainer}>
          <Button
             appearance='ghost'
-            accessoryLeft={MenuIcon}
-            onPress={() => props.navigation.dispatch(DrawerActions.toggleDrawer())}
-         />
+            accessoryLeft={MapIcon}
+            // onPress={() => props.navigation.dispatch(DrawerActions.toggleDrawer())}
+            onPress={() => props.navigation.navigate('Map')}
+         /> 
          <Layout style={styles.searchLayout}>
             <Input
                placeholder='Search'
@@ -21,15 +22,20 @@ export const ConnectHeader = (props) => {
          </Layout>
          <Button
             appearance='ghost'
-            accessoryLeft={MapIcon}
+            accessoryLeft={FilterOutlineIcon}
+            onPress={() => props.navigation.navigate('Filter')}
+            // accessoryLeft={FilterFilledIcon}
          />
       </Layout>
    );
 }
 
 /* icons */
-const MenuIcon = (props) => (
-   <Icon {...props} style={[props.style, { width: 28, height: 28 }]} name='menu-2-outline' />
+const FilterOutlineIcon = (props) => (
+   <Icon {...props} style={[props.style, { width: 28, height: 28 }]} name='funnel-outline' />
+);
+const FilterFilledIcon = (props) => (
+   <Icon {...props} style={[props.style, { width: 28, height: 28 }]} name='funnel' />
 );
 const MapIcon = (props) => (
    <Icon {...props} style={[props.style, { width: 28, height: 28 }]} name='map-outline' />
@@ -43,6 +49,7 @@ const styles = StyleSheet.create({
    },
    searchLayout: {
       marginTop: 7,
-      width: '60%',
+      // width: '60%',
+      width: 235
    },
 });

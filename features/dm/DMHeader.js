@@ -13,7 +13,7 @@ export const DMHeader = (props) => {
                accessoryLeft={MenuIcon}
                onPress={() => props.navigation.dispatch(DrawerActions.toggleDrawer())}
             />
-            <Text style={styles.headerTitle} category='h6'> Messages </Text>
+            <Text category='h6'> Messages </Text>
             <Button
                appearance='ghost'
                accessoryLeft={SettingsIcon}
@@ -42,10 +42,8 @@ const styles = StyleSheet.create({
    headerContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
+      alignItems: 'center',
       paddingTop: 35,
-   },
-   headerTitle: {
-      paddingTop: 14,
    },
    searchLayout: {
       paddingHorizontal: 20,

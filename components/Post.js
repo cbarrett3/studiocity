@@ -109,6 +109,6 @@ const styles = StyleSheet.create({
     },
     avatarStyle: {
        borderColor: 3 > 2 ? 'pink' : 'green',
-       borderWidth: 1.5
+       borderWidth: 2
     }
 });

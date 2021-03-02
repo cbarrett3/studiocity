@@ -77,11 +77,13 @@ const styles = StyleSheet.create({
    avatar: {
       borderColor: 3 > 2 ? 'pink' : 'green',
       borderWidth: 2.5,
-      height: 75,
-      width: 75,
+      height: 70,
+      width: 70,
    },
    descriptionLayout: {
-      marginLeft: 5,
+      flexDirection: 'column',
+      justifyContent: 'space-between', // appear at bottom of card
+      paddingLeft: 5,
    },
    cardContentLayout: {
       flexDirection: 'row',
@@ -97,15 +99,14 @@ const styles = StyleSheet.create({
    locationInfoLayout: {
       flex: 1,
       flexDirection: 'row',
-      alignItems: 'flex-end',
+      alignItems: 'flex-end', // appear at bottom
    },
    locationText: {
-      lineHeight: 25,
-      marginLeft: 1
+      // paddingLeft: 1
    },
    pinIcon: {
       marginLeft: 2,
-      paddingTop: 27,
+      paddingTop: 10,
       width: 18,
       height: 18,
    },
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
       justifyContent: 'flex-end', // appear on far right
    },
    dmIconSize: {
-      width: 20,
-      height: 20,
+      width: 18,
+      height: 18,
    },
 });
