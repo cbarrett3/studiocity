@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import { Text, Card, Tab, TabBar, Button, ButtonGroup, Radio, RadioGroup, Icon, IndexPath, Layout, Select, SelectGroup, SelectItem } from '@ui-kitten/components'
+import { Text, Card, Toggle, Tab, TabBar, Button, ButtonGroup, Radio, RadioGroup, Icon, IndexPath, Layout, Select, SelectGroup, SelectItem } from '@ui-kitten/components'
 
 const Filter = (props) => {
 
@@ -12,6 +12,11 @@ const Filter = (props) => {
    const [selectedIndexTabBar, setSelectedIndexTabBar] = React.useState(0);
 
    const [selectedIndexRadio, setSelectedIndexRadio] = React.useState(0);
+
+   const [checked, setChecked] = React.useState(false);
+   const onCheckedChange = (isChecked) => {
+      setChecked(isChecked);
+   };
 
 
    return (
@@ -25,46 +30,112 @@ const Filter = (props) => {
             <Tab title='Design' />
             <Tab title='Other' />
          </TabBar>
-         <Select
-            style={styles.selectGroup}
-            multiSelect={true}
-            activeOpacity={1}
-            placeholder="Music"
-            size='medium'
-            selectedIndex={selectedIndex}
-            onSelect={index => setSelectedIndex(index)}>
-            <SelectItem accessoryRight={MusicIcon} title='Producer' />
-            <SelectItem accessoryRight={MusicIcon} title='Vocalist' />
-            <SelectItem accessoryRight={MusicIcon} title='Audio Engineer' />
-            <SelectItem accessoryRight={MusicIcon} title='DJ' />
-            <SelectItem accessoryRight={MusicIcon} title='Mixing' />
-            <SelectItem accessoryRight={MusicIcon} title='Mastering' />
-            <SelectItem accessoryRight={MusicIcon} title='Guitarist' />
-            <SelectItem accessoryRight={MusicIcon} title='Drummer' />
-            <SelectItem accessoryRight={MusicIcon} title='Lyricist' />
-         </Select>
-         {/* <Text category='h6'>
-            {`Selected Option: ${selectedIndex + 1}`}
-         </Text> */}
-         <RadioGroup
-            style={styles.radioGroup}
-            selectedIndex={selectedIndexRadio}
-            multiSelect={true}
-            onChange={index => setSelectedIndexRadio(index)}>
-            <Radio style={styles.radio}>Vocalist</Radio>
-            <Radio style={styles.radio}>Producer</Radio>
-            <Radio style={styles.radio}>Guitarist</Radio>
-         </RadioGroup>
-         <ButtonGroup style={styles.buttonGroup} appearance='filled'>
-            <Button onPress={() => console.log('L')}>L</Button>
-            <Button onPress={() => console.log('M')}>M</Button>
-            <Button onPress={() => console.log('R')}>R</Button>
-         </ButtonGroup>
-         <ButtonGroup style={styles.buttonGroup} appearance='outline'>
-            <Button>L</Button>
-            <Button>M</Button>
-            <Button>R</Button>
-         </ButtonGroup >
+
+         <Layout style={styles.togglesContainer}>
+            <Layout style={styles.togglesLayout}>
+               <Layout style={styles.togglesColumn}>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Vocalist
+                  </Toggle>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Producer
+                  </Toggle>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Composer
+                  </Toggle>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Songwriter
+                  </Toggle>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Strings
+                  </Toggle>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Brass
+                  </Toggle>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Percussion
+                  </Toggle>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Woodwind
+                  </Toggle>
+               </Layout>
+               <Layout style={styles.togglesColumn}>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Band
+                  </Toggle>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     DJ
+                  </Toggle>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Recording Engineer
+                  </Toggle>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Mixing Engineer
+                  </Toggle>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Mastering Engineer
+                  </Toggle>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Systems Engineer
+                  </Toggle>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Session Musician
+                  </Toggle>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={checked}
+                     onChange={onCheckedChange}>
+                     Other Musical Talent
+                  </Toggle>
+               </Layout>
+            </Layout>
+         </Layout>
+
          <Select
             style={styles.selectGroup}
             multiSelect={true}
@@ -85,6 +156,8 @@ const Filter = (props) => {
             <SelectItem title='Punk' />
             <SelectItem title='Experimental' />
          </Select>
+
+         <Button style={{marginHorizontal: 15}}> Apply All (250 Results) </Button>
       </Layout>
    )
 }
@@ -97,19 +170,23 @@ const MusicIcon = (props) => (
 export default Filter;
 
 const styles = StyleSheet.create({
-   container: {
-      // flex: 1,
+   togglesContainer: {
+      flexDirection: 'row',
    },
-   buttonGroup: {
-      margin: 18,
+   togglesLayout: {
+      justifyContent: 'space-between', 
+      flexDirection: 'row', 
+      flex: 1, 
+      paddingHorizontal: 15,
+      paddingVertical: 10
    },
-   radioGroup: {
-      margin: 18,
+   togglesColumn: {
+      alignItems: 'flex-start'
    },
-   radio: {
-      marginBottom: 20
+   toggle: {
+      paddingVertical: 5,
    },
    selectGroup: {
-      margin: 18
+     padding: 15,
    }
 });
