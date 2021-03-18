@@ -2,12 +2,105 @@ import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { Text, Card, Toggle, Tab, TabBar, Button, ButtonGroup, Radio, RadioGroup, Icon, IndexPath, Layout, Select, SelectGroup, SelectItem } from '@ui-kitten/components'
 
-const Filter = (props) => {
+const data = [
+   'Alternative',
+   'Blues',
+   'Classical',
+   'Country',
+   'Dance',
+   'Electronic',
+   'Gospel',
+   'Hip-Hop/Rap',
+   'Jazz',
+   'Latin',
+   'Metal',
+   'New Age',
+   'Pop',
+   'R&B/Soul',
+   'Reggae',
+   'Rock',
+   'Singer/Songwriter',
+   'World'
+];
 
-   const [selectedIndex, setSelectedIndex] = useState([
-      new IndexPath(0),
-      new IndexPath(1),
+const groupedData = {
+   'Alternative': [
+      'Emotional Hardcore',
+      'Indie Rock',
+      'Lo-fi',
+      'New Wave',
+   ],
+   // 'Country': [
+   //    'Traditional',
+   //    'Modern',
+   // ],
+   'Dance': [
+      'EDM',
+      'House',
+      'Trance',
+   ],
+   'Electronic': [
+      'Chill',
+      'Experimental',
+      'Industrial'
+   ],
+   'Pop': [
+      'Bright',
+      'Sad',
+      'Original',
+   ],
+   'R&B/Soul': [
+      'Contemporary R&B',
+      'Soul',
+   ],
+   'Rock': [
+      'Alternative',
+      'Psychadelic',
+      'Punk',
+   ],
+};
+
+const MusicFilter = (props) => {
+
+   // const [selectedIndex, setSelectedIndex] = useState([
+   //    new IndexPath(0),
+   //    new IndexPath(1),
+   // ]);
+
+   const [selectedIndex, setSelectedIndex] = React.useState(
+      new IndexPath(0)
+   );
+   
+   const [multiSelectedIndex, setMultiSelectedIndex] = React.useState([
+      //   new IndexPath(0, 0),
+      //   new IndexPath(1, 1),
    ]);
+
+   // const displayValue = selectedIndex.map(index => {
+   //    console.log(data[index.row])
+   //    return data[index.row];
+   // })
+
+   const displayValue = data[selectedIndex.row];
+
+   // const displayV = multiSelectedIndex.map(index => {
+   //    return data[index.row]
+   // })
+
+   // const groupDisplayValues = multiSelectedIndex.map(index => {
+   //    const groupTitle = Object.keys(groupedData)[index.section];
+   //    console.log(groupedData[groupTitle][index.row])
+   //    return groupedData[groupTitle][index.row];
+   // });
+
+   const multiSelectDisplayValues = multiSelectedIndex.map(index => {
+      return data[index.row];
+   });
+
+
+   const renderOption = (title) => (
+      <SelectItem title={title} />
+   );
 
    const [selectedIndexTabBar, setSelectedIndexTabBar] = React.useState(0);
 
@@ -18,18 +111,20 @@ const Filter = (props) => {
       setChecked(isChecked);
    };
 
-
    return (
       <Layout style={styles.container} level='1'>
-         <TabBar
-            selectedIndex={selectedIndexTabBar}
-            onSelect={index => setSelectedIndexTabBar(index)}>
-            <Tab title='Music' />
-            <Tab title='Video' />
-            <Tab title='Photo' />
-            <Tab title='Design' />
-            <Tab title='Other' />
-         </TabBar>
+         <Select
+            style={styles.selectGroup}
+            size='large'
+            multiSelect={true}
+            placeholder='Genre(s)'
+            value={multiSelectDisplayValues.join(', ')}
+            selectedIndex={multiSelectedIndex}
+            onSelect={index => setMultiSelectedIndex(index)}>
+            {data.map((title, i) => (
+               <SelectItem key={i} title={title} />
+            ))}
+         </Select>
 
          <Layout style={styles.togglesContainer}>
             <Layout style={styles.togglesLayout}>
@@ -84,7 +179,7 @@ const Filter = (props) => {
                   </Toggle>
                </Layout>
                <Layout style={styles.togglesColumn}>
-                  <Toggle
+                  {/* <Toggle
                      style={styles.toggle}
                      checked={checked}
                      onChange={onCheckedChange}>
@@ -131,33 +226,11 @@ const Filter = (props) => {
                      checked={checked}
                      onChange={onCheckedChange}>
                      Other Musical Talent
-                  </Toggle>
+                  </Toggle> */}
                </Layout>
             </Layout>
          </Layout>
-
-         <Select
-            style={styles.selectGroup}
-            multiSelect={true}
-            activeOpacity={1}
-            placeholder="Genres"
-            size='large'
-            selectedIndex={selectedIndex}
-            onSelect={index => setSelectedIndex(index)}>
-            <SelectItem title='Select All' />
-            <SelectItem title='EDM' />
-            <SelectItem title='Trap' />
-            <SelectItem title='House' />
-            <SelectItem title='Alternative Rock' />
-            <SelectItem title='Indie' />
-            <SelectItem title='R&B Soul' />
-            <SelectItem title='Country' />
-            <SelectItem title='Rock' />
-            <SelectItem title='Punk' />
-            <SelectItem title='Experimental' />
-         </Select>
-
-         <Button style={{marginHorizontal: 15}}> Apply All (250 Results) </Button>
+         <Button style={{ marginHorizontal: 25, marginVertical: 15, paddingVertical: 13 }}> Apply All (250 Results) </Button>
       </Layout>
    )
 }
@@ -167,26 +240,29 @@ const MusicIcon = (props) => (
    <Icon {...props} style={[props.style, { width: 28, height: 28 }]} name='music' />
 );
 
-export default Filter;
+export default MusicFilter;
 
 const styles = StyleSheet.create({
+   container: {
+      flex: 1,
+   },
    togglesContainer: {
       flexDirection: 'row',
    },
    togglesLayout: {
-      justifyContent: 'space-between', 
-      flexDirection: 'row', 
-      flex: 1, 
+      justifyContent: 'space-between',
+      flexDirection: 'row',
+      flex: 1,
       paddingHorizontal: 15,
-      paddingVertical: 10
+      paddingVertical: 5
    },
    togglesColumn: {
       alignItems: 'flex-start'
    },
    toggle: {
-      paddingVertical: 5,
+      paddingVertical: 10,
    },
    selectGroup: {
-     padding: 15,
+      padding: 15,
    }
 });

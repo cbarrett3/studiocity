@@ -11,7 +11,7 @@ export const FilterHeader = (props) => {
                accessoryLeft={BackIcon}
                onPress={() => props.navigation.goBack()}
             /> 
-            <Text style={styles.headerTitle} category='h6'> Filters </Text>
+            <Text style={styles.headerTitle} category='h6'> Filter </Text>
             <Button appearance='ghost' >
                <Text style={styles.resetButton}> Reset All </Text>
             </Button>

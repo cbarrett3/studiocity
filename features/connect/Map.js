@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout, Text } from '@ui-kitten/components'
 import MapView, { Marker } from 'react-native-maps';
 import { StyleSheet, Dimensions } from 'react-native';
-import Filter from './Filter';
+import Filter from './MusicFilter';
 
 const Map = (props) => {
 

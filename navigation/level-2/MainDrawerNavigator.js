@@ -1,9 +1,11 @@
 /* react */
 import React from 'react';
+/* react native */
+import { StyleSheet } from 'react-native';
 /* navigation */
 import { createDrawerNavigator } from '@react-navigation/drawer';
 /* ui-kitten */
-import { Text, DrawerItem, IndexPath, Icon } from '@ui-kitten/components';
+import { Layout, Text, DrawerItem, IndexPath, Icon } from '@ui-kitten/components';
 /* screens */
 import SettingsScreen from '../../features/settings/Settings';
 import AdminScreen from '../../features/settings/Admin';
@@ -23,6 +25,7 @@ const ForgotPasswordIcon = (props) => (<Icon {...props} name='edit-outline' />);
 const ChangePasswordIcon = (props) => (<Icon {...props} name='edit-2-outline' />);
 const AdminIcon = (props) => (<Icon {...props} name='clipboard-outline' />);
 const ForwardIcon = (props) => (<Icon {...props} name='arrow-ios-forward' />);
+
 
 
 // 2nd Level Drawer UI Kitten Component

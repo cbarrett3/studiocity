@@ -4,10 +4,11 @@ import { StyleSheet, BlurView } from 'react-native';
 import { Layout, Text } from '@ui-kitten/components';
 import { createStackNavigator } from '@react-navigation/stack';
 import Connect from '../../features/connect/Connect'; // should this be named ConnectScreen?
-import Filter from '../../features/connect/Filter'; // should this be named FilterScreen?
+import Filter from '../../features/connect/MusicFilter'; // should this be named FilterScreen?
 import Map from '../../features/connect/Map'; // should this be named MapScreen?
 import { ConnectHeader } from '../../features/connect/ConnectHeader';
 import { FilterHeader } from '../../features/connect/FilterHeader';
+import { FilterTabBarNavigator } from '../level-5/FilterTabBarNavigator';
 
 const ConnectStack = createStackNavigator();
 
@@ -16,7 +17,7 @@ const filterHeaderRight = () => {
 }
 
 export const ConnectStackNavigator = () => (
-   <ConnectStack.Navigator>
+   <ConnectStack.Navigator initialRouteName='Connect' headerMode='screen'>
       <ConnectStack.Screen 
          name="Connect" 
          component={Connect} 
@@ -29,16 +30,10 @@ export const ConnectStackNavigator = () => (
       />
       <ConnectStack.Screen 
          name="Filter" 
-         component={Filter} 
+         component={FilterTabBarNavigator}
+         // component={Filter} // much faster option currently
          options={{
-            // title:"Filter",
-            // headerTransparent: false,
-            // headerTitle: 'Filters',
-            // headerTitleAlign: 'center',
-            // headerBackTitle: 'connect',
-            // headerBackTitleVisible: true,
-            // headerRight: () => (<Text style={styles.filterHeaderRight} category='s1'>Reset All</Text>),
-            // animationTypeForReplace: 'push',
+            title:"Filter",
             header: (props) => (
                <FilterHeader {...props} />
             ),
