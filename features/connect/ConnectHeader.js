@@ -9,6 +9,7 @@ export const ConnectHeader = (props) => {
       <Layout style={styles.headerContainer}>
          <Button
             appearance='ghost'
+            activeOpacity='.2'
             accessoryLeft={MapIcon}
             // onPress={() => props.navigation.dispatch(DrawerActions.toggleDrawer())}
             onPress={() => props.navigation.navigate('Map')}
@@ -22,6 +23,7 @@ export const ConnectHeader = (props) => {
          </Layout>
          <Button
             appearance='ghost'
+            activeOpacity='.2'
             accessoryLeft={FilterOutlineIcon}
             onPress={() => props.navigation.navigate('Filter')}
             // accessoryLeft={FilterFilledIcon}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Icon, Layout, Input, Text} from '@ui-kitten/components';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
 export const FilterHeader = (props) => {
    return (
@@ -8,12 +8,15 @@ export const FilterHeader = (props) => {
          <Layout style={styles.headerContainer}>
             <Button
                appearance='ghost'
+               activeOpacity='.2'
                accessoryLeft={BackIcon}
                onPress={() => props.navigation.goBack()}
             /> 
             <Text style={styles.headerTitle} category='h6'> Filter </Text>
             <Button appearance='ghost' >
-               <Text style={styles.resetButton}> Reset All </Text>
+               <TouchableOpacity>
+                  <Text style={styles.resetButton}> Reset All </Text>
+               </TouchableOpacity>
             </Button>
          </Layout>
       </>

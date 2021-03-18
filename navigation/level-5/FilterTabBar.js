@@ -18,6 +18,7 @@ export const FilterTabBar = (props) => {
       return (
          <Tab
             key={route.key}
+            activeOpacity='.5'
             title={evaProps => <Text {...evaProps} >{options.title}</Text>}
          />
       );

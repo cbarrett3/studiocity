@@ -106,6 +106,8 @@ const MusicFilter = (props) => {
 
    const [selectedIndexRadio, setSelectedIndexRadio] = React.useState(0);
 
+   const [radioChecked, setradioChecked] = React.useState(false);
+
    const [checked, setChecked] = React.useState(false);
    const onCheckedChange = (isChecked) => {
       setChecked(isChecked);
@@ -129,6 +131,11 @@ const MusicFilter = (props) => {
          <Layout style={styles.togglesContainer}>
             <Layout style={styles.togglesLayout}>
                <Layout style={styles.togglesColumn}>
+                  <Radio
+                     checked={checked}
+                     onChange={nextChecked => setChecked(nextChecked)}>
+                     {`Checked: ${checked}`}
+                  </Radio>
                   <Toggle
                      style={styles.toggle}
                      checked={checked}
