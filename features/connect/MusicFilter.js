@@ -23,229 +23,173 @@ const data = [
    'World'
 ];
 
-const groupedData = {
-   'Alternative': [
-      'Emotional Hardcore',
-      'Indie Rock',
-      'Lo-fi',
-      'New Wave',
-   ],
-   // 'Country': [
-   //    'Traditional',
-   //    'Modern',
-   // ],
-   'Dance': [
-      'EDM',
-      'House',
-      'Trance',
-   ],
-   'Electronic': [
-      'Chill',
-      'Experimental',
-      'Industrial'
-   ],
-   'Pop': [
-      'Bright',
-      'Sad',
-      'Original',
-   ],
-   'R&B/Soul': [
-      'Contemporary R&B',
-      'Soul',
-   ],
-   'Rock': [
-      'Alternative',
-      'Psychadelic',
-      'Punk',
-   ],
-};
-
 const MusicFilter = (props) => {
 
-   // const [selectedIndex, setSelectedIndex] = useState([
-   //    new IndexPath(0),
-   //    new IndexPath(1),
-   // ]);
+   // Dropdown Selections
+   const [multiSelectedIndex, setMultiSelectedIndex] = React.useState([]);
+   // Radios
+   const [singerRadioChecked, setSingerRadioChecked] = React.useState(true);
+   const [rapperRadioChecked, setRapperRadioChecked] = React.useState(true);
+   const [producerRadioChecked, setProducerRadioChecked] = React.useState(true);
+   const [composerRadioChecked, setComposerRadioChecked] = React.useState(true);
+   const [stringsRadioChecked, setStringsRadioChecked] = React.useState(true);
+   const [brassRadioChecked, setBrassRadioChecked] = React.useState(true);
+   const [percussionRadioChecked, setPercussionRadioChecked] = React.useState(true);
+   const [woodwindRadioChecked, setWoodwindRadioChecked] = React.useState(true);
+   const [songwriterRadioChecked, setSongwriterRadioChecked] = React.useState(true);
+   const [bandRadioChecked, setBandRadioChecked] = React.useState(true);
+   const [DJRadioChecked, setDJRadioChecked] = React.useState(true);
+   const [recordingEngineerRadioChecked, setRecordingEngineerRadioChecked] = React.useState(true);
+   const [mixingEngineerRadioChecked, setMixingEngineerRadioChecked] = React.useState(true);
+   const [masteringEngineerRadioChecked, setMasteringEngineerRadioChecked] = React.useState(true);
+   const [systemsEngineerRadioChecked, setSystemsEngineerRadioChecked] = React.useState(true);
+   const [sessionMusicianRadioChecked, setSessionMusicianRadioChecked] = React.useState(true);
+   // Toggles
+   const [openToCollabsToggledOn, setOpenToCollabsToggledOn] = React.useState(true);
+   const [certifiedOnlyToggledOn, setCertifiedOnlyToggledOn] = React.useState(true);
 
-   const [selectedIndex, setSelectedIndex] = React.useState(
-      new IndexPath(0)
-   );
-   
-   const [multiSelectedIndex, setMultiSelectedIndex] = React.useState([
-      //   new IndexPath(0, 0),
-      //   new IndexPath(1, 1),
-   ]);
-
-   // const displayValue = selectedIndex.map(index => {
-   //    console.log(data[index.row])
-   //    return data[index.row];
-   // })
-
-   const displayValue = data[selectedIndex.row];
-
-   // const displayV = multiSelectedIndex.map(index => {
-   //    return data[index.row]
-   // })
-
-   // const groupDisplayValues = multiSelectedIndex.map(index => {
-   //    const groupTitle = Object.keys(groupedData)[index.section];
-   //    console.log(groupedData[groupTitle][index.row])
-   //    return groupedData[groupTitle][index.row];
-   // });
-
+   // Dropdown Display Values
    const multiSelectDisplayValues = multiSelectedIndex.map(index => {
       return data[index.row];
    });
-
-
-   const renderOption = (title) => (
-      <SelectItem title={title} />
-   );
-
-   const [selectedIndexTabBar, setSelectedIndexTabBar] = React.useState(0);
-
-   const [selectedIndexRadio, setSelectedIndexRadio] = React.useState(0);
-
-   const [radioChecked, setradioChecked] = React.useState(false);
-
-   const [checked, setChecked] = React.useState(false);
-   const onCheckedChange = (isChecked) => {
-      setChecked(isChecked);
-   };
 
    return (
       <Layout style={styles.container} level='1'>
          <Select
             style={styles.selectGroup}
-            size='large'
             multiSelect={true}
-            placeholder='Genre(s)'
-            value={multiSelectDisplayValues.join(', ')}
+            size='large'
+            placeholder='Genres'
             selectedIndex={multiSelectedIndex}
+            value={multiSelectDisplayValues.join(', ')}
             onSelect={index => setMultiSelectedIndex(index)}>
-            {data.map((title, i) => (
-               <SelectItem key={i} title={title} />
-            ))}
+            <SelectGroup title='All Genres'>
+               {data.map((title, i) => (
+                  <SelectItem key={i} title={title} />
+               ))}
+            </SelectGroup>
          </Select>
 
          <Layout style={styles.togglesContainer}>
             <Layout style={styles.togglesLayout}>
                <Layout style={styles.togglesColumn}>
+                  <Toggle
+                     style={styles.toggle}
+                     checked={openToCollabsToggledOn}
+                     onChange={nextToggled => setOpenToCollabsToggledOn(nextToggled)}>
+                     Pubilc DMs
+                  </Toggle>
                   <Radio
-                     checked={checked}
-                     onChange={nextChecked => setChecked(nextChecked)}>
-                     {`Checked: ${checked}`}
+                     style={styles.radio}
+                     checked={singerRadioChecked}
+                     onChange={nextChecked => setSingerRadioChecked(nextChecked)}>
+                     Singer
                   </Radio>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
-                     Vocalist
-                  </Toggle>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
+                  <Radio
+                     style={styles.radio}
+                     checked={rapperRadioChecked}
+                     onChange={nextChecked => setRapperRadioChecked(nextChecked)}>
+                     Rapper
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={producerRadioChecked}
+                     onChange={nextChecked => setProducerRadioChecked(nextChecked)}>
                      Producer
-                  </Toggle>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={composerRadioChecked}
+                     onChange={nextChecked => setComposerRadioChecked(nextChecked)}>
                      Composer
-                  </Toggle>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
-                     Songwriter
-                  </Toggle>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={stringsRadioChecked}
+                     onChange={nextChecked => setStringsRadioChecked(nextChecked)}>
                      Strings
-                  </Toggle>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={brassRadioChecked}
+                     onChange={nextChecked => setBrassRadioChecked(nextChecked)}>
                      Brass
-                  </Toggle>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={percussionRadioChecked}
+                     onChange={nextChecked => setPercussionRadioChecked(nextChecked)}>
                      Percussion
-                  </Toggle>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={woodwindRadioChecked}
+                     onChange={nextChecked => setWoodwindRadioChecked(nextChecked)}>
                      Woodwind
-                  </Toggle>
+                  </Radio>
                </Layout>
                <Layout style={styles.togglesColumn}>
-                  {/* <Toggle
+                  <Toggle
                      style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
+                     checked={certifiedOnlyToggledOn}
+                     onChange={nextToggled => setCertifiedOnlyToggledOn(nextToggled)}>
+                     SC Certified
+                  </Toggle>
+                  <Radio
+                     style={styles.radio}
+                     checked={songwriterRadioChecked}
+                     onChange={nextChecked => setSongwriterRadioChecked(nextChecked)}>
+                     Songwriter
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={bandRadioChecked}
+                     onChange={nextChecked => setBandRadioChecked(nextChecked)}>
                      Band
-                  </Toggle>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={DJRadioChecked}
+                     onChange={nextChecked => setDJRadioChecked(nextChecked)}>
                      DJ
-                  </Toggle>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={recordingEngineerRadioChecked}
+                     onChange={nextChecked => setRecordingEngineerRadioChecked(nextChecked)}>
                      Recording Engineer
-                  </Toggle>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={mixingEngineerRadioChecked}
+                     onChange={nextChecked => setMixingEngineerRadioChecked(nextChecked)}>
                      Mixing Engineer
-                  </Toggle>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={masteringEngineerRadioChecked}
+                     onChange={nextChecked => setMasteringEngineerRadioChecked(nextChecked)}>
                      Mastering Engineer
-                  </Toggle>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={systemsEngineerRadioChecked}
+                     onChange={nextChecked => setSystemsEngineerRadioChecked(nextChecked)}>
                      Systems Engineer
-                  </Toggle>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={sessionMusicianRadioChecked}
+                     onChange={nextChecked => setSessionMusicianRadioChecked(nextChecked)}>
                      Session Musician
-                  </Toggle>
-                  <Toggle
-                     style={styles.toggle}
-                     checked={checked}
-                     onChange={onCheckedChange}>
-                     Other Musical Talent
-                  </Toggle> */}
+                  </Radio>
                </Layout>
             </Layout>
          </Layout>
-         <Button style={{ marginHorizontal: 25, marginVertical: 15, paddingVertical: 13 }}> Apply All (250 Results) </Button>
+         <Button style={styles.applyButton}> Apply All (250 Results) </Button>
       </Layout>
    )
 }
-
-/* icons */
-const MusicIcon = (props) => (
-   <Icon {...props} style={[props.style, { width: 28, height: 28 }]} name='music' />
-);
 
 export default MusicFilter;
 
@@ -261,15 +205,24 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       flex: 1,
       paddingHorizontal: 15,
-      paddingVertical: 5
+      paddingBottom: 30
    },
    togglesColumn: {
       alignItems: 'flex-start'
    },
    toggle: {
+      paddingVertical: 15,
+   },
+   radio: {
       paddingVertical: 10,
    },
    selectGroup: {
-      padding: 15,
+      paddingHorizontal: 15,
+      paddingVertical: 20
+   },
+   applyButton: {
+      marginHorizontal: 15,
+      marginTop: 10, // button position, below radios
+      paddingVertical: 15, // button size
    }
 });
