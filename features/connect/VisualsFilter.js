@@ -23,27 +23,27 @@ const data = [
    'World'
 ];
 
-const MusicFilter = (props) => {
+const VisualsFilter = (props) => {
 
    // Dropdown Selections
    const [multiSelectedIndex, setMultiSelectedIndex] = React.useState([]);
    // Radios
-   const [singerRadioChecked, setSingerRadioChecked] = React.useState(true);
-   const [rapperRadioChecked, setRapperRadioChecked] = React.useState(true);
-   const [producerRadioChecked, setProducerRadioChecked] = React.useState(true);
-   const [composerRadioChecked, setComposerRadioChecked] = React.useState(true);
-   const [stringsRadioChecked, setStringsRadioChecked] = React.useState(true);
-   const [brassRadioChecked, setBrassRadioChecked] = React.useState(true);
-   const [percussionRadioChecked, setPercussionRadioChecked] = React.useState(true);
-   const [woodwindRadioChecked, setWoodwindRadioChecked] = React.useState(true);
-   const [songwriterRadioChecked, setSongwriterRadioChecked] = React.useState(true);
-   const [bandRadioChecked, setBandRadioChecked] = React.useState(true);
-   const [DJRadioChecked, setDJRadioChecked] = React.useState(true);
-   const [recordingEngineerRadioChecked, setRecordingEngineerRadioChecked] = React.useState(true);
-   const [mixingEngineerRadioChecked, setMixingEngineerRadioChecked] = React.useState(true);
-   const [masteringEngineerRadioChecked, setMasteringEngineerRadioChecked] = React.useState(true);
-   const [systemsEngineerRadioChecked, setSystemsEngineerRadioChecked] = React.useState(true);
-   const [sessionMusicianRadioChecked, setSessionMusicianRadioChecked] = React.useState(true);
+   const [photographerRadioChecked, setPhotographerRadioChecked] = React.useState(false);
+   const [rapperRadioChecked, setRapperRadioChecked] = React.useState(false);
+   const [producerRadioChecked, setProducerRadioChecked] = React.useState(false);
+   const [composerRadioChecked, setComposerRadioChecked] = React.useState(false);
+   const [stringsRadioChecked, setStringsRadioChecked] = React.useState(false);
+   const [brassRadioChecked, setBrassRadioChecked] = React.useState(false);
+   const [percussionRadioChecked, setPercussionRadioChecked] = React.useState(false);
+   const [woodwindRadioChecked, setWoodwindRadioChecked] = React.useState(false);
+   const [songwriterRadioChecked, setSongwriterRadioChecked] = React.useState(false);
+   const [bandRadioChecked, setBandRadioChecked] = React.useState(false);
+   const [DJRadioChecked, setDJRadioChecked] = React.useState(false);
+   const [recordingEngineerRadioChecked, setRecordingEngineerRadioChecked] = React.useState(false);
+   const [mixingEngineerRadioChecked, setMixingEngineerRadioChecked] = React.useState(false);
+   const [masteringEngineerRadioChecked, setMasteringEngineerRadioChecked] = React.useState(false);
+   const [systemsEngineerRadioChecked, setSystemsEngineerRadioChecked] = React.useState(false);
+   const [sessionMusicianRadioChecked, setSessionMusicianRadioChecked] = React.useState(false);
    // Toggles
    const [openToCollabsToggledOn, setOpenToCollabsToggledOn] = React.useState(false);
    const [certifiedOnlyToggledOn, setCertifiedOnlyToggledOn] = React.useState(false);
@@ -55,7 +55,7 @@ const MusicFilter = (props) => {
 
    return (
       <Layout style={styles.container} level='1'>
-         <Select
+         {/* <Select
             style={styles.selectGroup}
             multiSelect={true}
             size='large'
@@ -68,58 +68,58 @@ const MusicFilter = (props) => {
                   <SelectItem key={i} title={title} />
                ))}
             </SelectGroup>
-         </Select>
+         </Select> */}
+
+         {/* <ButtonGroup appearance='filled' style={styles.selectGroup}>
+            <Button appearance='filled'>L</Button>
+            <Button appearance='ghost'>M</Button>
+            <Button appearance='ghost'>R</Button>
+         </ButtonGroup> */}
 
          <Layout style={styles.togglesContainer}>
             <Layout style={styles.togglesLayout}>
                <Layout style={styles.togglesColumn}>
                   <Radio
                      style={styles.radio}
-                     checked={singerRadioChecked}
-                     onChange={nextChecked => setSingerRadioChecked(nextChecked)}>
-                     Singer
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={rapperRadioChecked}
-                     onChange={nextChecked => setRapperRadioChecked(nextChecked)}>
-                     Rapper
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={producerRadioChecked}
-                     onChange={nextChecked => setProducerRadioChecked(nextChecked)}>
-                     Producer
+                     checked={composerRadioChecked}
+                     onChange={nextChecked => setComposerRadioChecked(nextChecked)}>
+                     Portrait Photography
                   </Radio>
                   <Radio
                      style={styles.radio}
                      checked={composerRadioChecked}
                      onChange={nextChecked => setComposerRadioChecked(nextChecked)}>
-                     Composer
+                     Street Photography
                   </Radio>
                   <Radio
                      style={styles.radio}
                      checked={stringsRadioChecked}
                      onChange={nextChecked => setStringsRadioChecked(nextChecked)}>
-                     Strings
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={brassRadioChecked}
-                     onChange={nextChecked => setBrassRadioChecked(nextChecked)}>
-                     Brass
+                     Concert Photography
                   </Radio>
                   <Radio
                      style={styles.radio}
                      checked={percussionRadioChecked}
                      onChange={nextChecked => setPercussionRadioChecked(nextChecked)}>
-                     Percussion
+                     Web Development
                   </Radio>
                   <Radio
                      style={styles.radio}
-                     checked={woodwindRadioChecked}
-                     onChange={nextChecked => setWoodwindRadioChecked(nextChecked)}>
-                     Woodwind
+                     checked={recordingEngineerRadioChecked}
+                     onChange={nextChecked => setRecordingEngineerRadioChecked(nextChecked)}>
+                     Drawing
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={masteringEngineerRadioChecked}
+                     onChange={nextChecked => setMasteringEngineerRadioChecked(nextChecked)}>
+                     Painting
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={masteringEngineerRadioChecked}
+                     onChange={nextChecked => setMasteringEngineerRadioChecked(nextChecked)}>
+                     Street Artist
                   </Radio>
                   <Toggle
                      style={styles.toggle}
@@ -133,49 +133,67 @@ const MusicFilter = (props) => {
                      style={styles.radio}
                      checked={songwriterRadioChecked}
                      onChange={nextChecked => setSongwriterRadioChecked(nextChecked)}>
-                     Songwriter
+                     Videographer
                   </Radio>
                   <Radio
                      style={styles.radio}
+                     checked={rapperRadioChecked}
+                     onChange={nextChecked => setRapperRadioChecked(nextChecked)}>
+                     Drone Videography
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={photographerRadioChecked}
+                     onChange={nextChecked => setPhotographerRadioChecked(nextChecked)}>
+                     2D or 3D Graphics
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={woodwindRadioChecked}
+                     onChange={nextChecked => setWoodwindRadioChecked(nextChecked)}>
+                     Animation
+                  </Radio>
+                  {/* <Radio
+                     style={styles.radio}
                      checked={bandRadioChecked}
                      onChange={nextChecked => setBandRadioChecked(nextChecked)}>
-                     Band
+                     Video Producer
                   </Radio>
                   <Radio
                      style={styles.radio}
                      checked={DJRadioChecked}
                      onChange={nextChecked => setDJRadioChecked(nextChecked)}>
-                     DJ
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={recordingEngineerRadioChecked}
-                     onChange={nextChecked => setRecordingEngineerRadioChecked(nextChecked)}>
-                     Recording Engineer
-                  </Radio>
+                     Video Director
+                  </Radio> */}
                   <Radio
                      style={styles.radio}
                      checked={mixingEngineerRadioChecked}
                      onChange={nextChecked => setMixingEngineerRadioChecked(nextChecked)}>
-                     Mixing Engineer
+                     Cinematographer
+                  </Radio>
+                  {/* <Radio
+                     style={styles.radio}
+                     checked={recordingEngineerRadioChecked}
+                     onChange={nextChecked => setRecordingEngineerRadioChecked(nextChecked)}>
+                     Set Designer
                   </Radio>
                   <Radio
                      style={styles.radio}
                      checked={masteringEngineerRadioChecked}
                      onChange={nextChecked => setMasteringEngineerRadioChecked(nextChecked)}>
-                     Mastering Engineer
+                     Lighting Director
+                  </Radio> */}
+                  <Radio
+                     style={styles.radio}
+                     checked={recordingEngineerRadioChecked}
+                     onChange={nextChecked => setRecordingEngineerRadioChecked(nextChecked)}>
+                     Drawing
                   </Radio>
                   <Radio
                      style={styles.radio}
-                     checked={systemsEngineerRadioChecked}
-                     onChange={nextChecked => setSystemsEngineerRadioChecked(nextChecked)}>
-                     Systems Engineer
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={sessionMusicianRadioChecked}
-                     onChange={nextChecked => setSessionMusicianRadioChecked(nextChecked)}>
-                     Session Musician
+                     checked={masteringEngineerRadioChecked}
+                     onChange={nextChecked => setMasteringEngineerRadioChecked(nextChecked)}>
+                     Painting
                   </Radio>
                   <Toggle
                      style={styles.toggle}
@@ -194,7 +212,7 @@ const MusicFilter = (props) => {
    )
 }
 
-export default MusicFilter;
+export default VisualsFilter;
 
 const styles = StyleSheet.create({
    container: {
