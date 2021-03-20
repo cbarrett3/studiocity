@@ -23,12 +23,12 @@ const data = [
    'World'
 ];
 
-const VideoFilter = (props) => {
+const CameraFilter = (props) => {
 
    // Dropdown Selections
    const [multiSelectedIndex, setMultiSelectedIndex] = React.useState([]);
    // Radios
-   const [singerRadioChecked, setSingerRadioChecked] = React.useState(true);
+   const [photographerRadioChecked, setPhotographerRadioChecked] = React.useState(true);
    const [rapperRadioChecked, setRapperRadioChecked] = React.useState(true);
    const [producerRadioChecked, setProducerRadioChecked] = React.useState(true);
    const [composerRadioChecked, setComposerRadioChecked] = React.useState(true);
@@ -81,51 +81,39 @@ const VideoFilter = (props) => {
                   </Toggle>
                   <Radio
                      style={styles.radio}
-                     checked={singerRadioChecked}
-                     onChange={nextChecked => setSingerRadioChecked(nextChecked)}>
-                     Singer
+                     checked={composerRadioChecked}
+                     onChange={nextChecked => setComposerRadioChecked(nextChecked)}>
+                     Portraits
                   </Radio>
                   <Radio
                      style={styles.radio}
                      checked={rapperRadioChecked}
                      onChange={nextChecked => setRapperRadioChecked(nextChecked)}>
-                     Rapper
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={producerRadioChecked}
-                     onChange={nextChecked => setProducerRadioChecked(nextChecked)}>
-                     Producer
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={composerRadioChecked}
-                     onChange={nextChecked => setComposerRadioChecked(nextChecked)}>
-                     Composer
+                     Aerial / Drone
                   </Radio>
                   <Radio
                      style={styles.radio}
                      checked={stringsRadioChecked}
                      onChange={nextChecked => setStringsRadioChecked(nextChecked)}>
-                     Strings
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={brassRadioChecked}
-                     onChange={nextChecked => setBrassRadioChecked(nextChecked)}>
-                     Brass
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={percussionRadioChecked}
-                     onChange={nextChecked => setPercussionRadioChecked(nextChecked)}>
-                     Percussion
+                     Concert Photos
                   </Radio>
                   <Radio
                      style={styles.radio}
                      checked={woodwindRadioChecked}
                      onChange={nextChecked => setWoodwindRadioChecked(nextChecked)}>
-                     Woodwind
+                     Photojournalist
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={photographerRadioChecked}
+                     onChange={nextChecked => setPhotographerRadioChecked(nextChecked)}>
+                     Film Camera
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={percussionRadioChecked}
+                     onChange={nextChecked => setPercussionRadioChecked(nextChecked)}>
+                     Street / Abstract
                   </Radio>
                </Layout>
                <Layout style={styles.togglesColumn}>
@@ -139,49 +127,37 @@ const VideoFilter = (props) => {
                      style={styles.radio}
                      checked={songwriterRadioChecked}
                      onChange={nextChecked => setSongwriterRadioChecked(nextChecked)}>
-                     Songwriter
+                     Videographer
                   </Radio>
                   <Radio
                      style={styles.radio}
                      checked={bandRadioChecked}
                      onChange={nextChecked => setBandRadioChecked(nextChecked)}>
-                     Band
+                     Video Producer
                   </Radio>
                   <Radio
                      style={styles.radio}
                      checked={DJRadioChecked}
                      onChange={nextChecked => setDJRadioChecked(nextChecked)}>
-                     DJ
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={recordingEngineerRadioChecked}
-                     onChange={nextChecked => setRecordingEngineerRadioChecked(nextChecked)}>
-                     Recording Engineer
+                     Video Director
                   </Radio>
                   <Radio
                      style={styles.radio}
                      checked={mixingEngineerRadioChecked}
                      onChange={nextChecked => setMixingEngineerRadioChecked(nextChecked)}>
-                     Mixing Engineer
+                     Cinematographer
+                  </Radio>
+                  <Radio
+                     style={styles.radio}
+                     checked={recordingEngineerRadioChecked}
+                     onChange={nextChecked => setRecordingEngineerRadioChecked(nextChecked)}>
+                     Set Designer
                   </Radio>
                   <Radio
                      style={styles.radio}
                      checked={masteringEngineerRadioChecked}
                      onChange={nextChecked => setMasteringEngineerRadioChecked(nextChecked)}>
-                     Mastering Engineer
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={systemsEngineerRadioChecked}
-                     onChange={nextChecked => setSystemsEngineerRadioChecked(nextChecked)}>
-                     Systems Engineer
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={sessionMusicianRadioChecked}
-                     onChange={nextChecked => setSessionMusicianRadioChecked(nextChecked)}>
-                     Session Musician
+                     Lighting Director
                   </Radio>
                </Layout>
             </Layout>
@@ -191,7 +167,7 @@ const VideoFilter = (props) => {
    )
 }
 
-export default VideoFilter;
+export default CameraFilter;
 
 const styles = StyleSheet.create({
    container: {
