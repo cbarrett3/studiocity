@@ -24,9 +24,6 @@ const data = [
 ];
 
 const MusicFilter = (props) => {
-
-   // Dropdown Selections
-   const [multiSelectedIndex, setMultiSelectedIndex] = React.useState([]);
    // Radios
    const [singerRadioChecked, setSingerRadioChecked] = React.useState(true);
    const [rapperRadioChecked, setRapperRadioChecked] = React.useState(true);
@@ -47,8 +44,28 @@ const MusicFilter = (props) => {
    // Toggles
    const [openToCollabsToggledOn, setOpenToCollabsToggledOn] = React.useState(false);
    const [certifiedOnlyToggledOn, setCertifiedOnlyToggledOn] = React.useState(false);
-
-   // Dropdown Display Values
+   // Dropdown Selections
+   const [multiSelectedIndex, setMultiSelectedIndex] = React.useState([
+      new IndexPath(0, 0),
+      new IndexPath(1, 0),
+      new IndexPath(2, 0),
+      new IndexPath(3, 0),
+      new IndexPath(4, 0),
+      new IndexPath(5, 0),
+      new IndexPath(6, 0),
+      new IndexPath(7, 0),
+      new IndexPath(8, 0),
+      new IndexPath(9, 0),
+      new IndexPath(10, 0),
+      new IndexPath(11, 0),
+      new IndexPath(12, 0),
+      new IndexPath(13, 0),
+      new IndexPath(14, 0),
+      new IndexPath(15, 0),
+      new IndexPath(16, 0),
+      new IndexPath(17, 0),
+   ]);
+   // Dropdown Display Values (gets text values for indices determined by multiselectedIndex)
    const multiSelectDisplayValues = multiSelectedIndex.map(index => {
       return data[index.row];
    });
@@ -56,13 +73,13 @@ const MusicFilter = (props) => {
    return (
       <Layout style={styles.container} level='1'>
          <Select
-            style={styles.selectGroup}
+            style={styles.selectDropdown}
             multiSelect={true}
             size='large'
-            placeholder='Genres'
+            placeholder='Select Genre(s)'
             selectedIndex={multiSelectedIndex}
             value={multiSelectDisplayValues.join(', ')}
-            onSelect={index => setMultiSelectedIndex(index)}>
+            onSelect={(index) => setMultiSelectedIndex(index)}>
             <SelectGroup title='All Genres'>
                {data.map((title, i) => (
                   <SelectItem key={i} title={title} />
@@ -219,7 +236,7 @@ const styles = StyleSheet.create({
    radio: {
       paddingVertical: 10,
    },
-   selectGroup: {
+   selectDropdown: {
       paddingHorizontal: 15,
       paddingVertical: 20
    },

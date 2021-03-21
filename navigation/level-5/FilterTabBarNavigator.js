@@ -2,7 +2,6 @@ import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import MusicFilter from '../../features/connect/MusicFilter'
 import CameraFilter from '../../features/connect/VisualsFilter'
-import DesignFilter from '../../features/connect/DesignFilter'
 import OtherFilter from '../../features/connect/OtherFilter'
 import { FilterTabBar } from './FilterTabBar';
 
@@ -22,8 +21,6 @@ export const FilterTabBarNavigator = () => (
    >
     <TopTab.Screen name="Music" component={MusicFilter} options={{title:"music & studio"}} />
     <TopTab.Screen name="Video" component={CameraFilter} options={{title:"visuals & art"}}/>
-    {/* <TopTab.Screen name="Photo" component={PhotoFilter} options={{title:"photo"}}/> */}
-    {/* <TopTab.Screen name="Design" component={DesignFilter} options={{title:"visual & graphic"}}/> */}
     <TopTab.Screen name="Other" component={OtherFilter} options={{title:"other business"}}/>
   </TopTab.Navigator>
 );
