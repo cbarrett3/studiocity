@@ -3,31 +3,27 @@ import { StyleSheet } from 'react-native';
 import { Text, Card, Toggle, Tab, TabBar, Button, ButtonGroup, Radio, RadioGroup, Icon, IndexPath, Layout, Select, SelectGroup, SelectItem } from '@ui-kitten/components'
 
 const data = [
-   'Newcomer',
-   'Intermediate',
-   'Expert',
+   'Less than 1 Year',
+   'More than 1 Year',
+   'More than 3 Years',
 ];
 
 const OtherFilter = (props) => {
 
-   // Radios
-   const [socialMediaMarketingRadioChecked, setSocialMediaMarketingRadioChecked] = React.useState(true);
-   const [influencerRadioChecked, setInfluencerRadioChecked] = React.useState(true);
-   const [concertPhotographyRadioChecked, setConcertPhotographyRadioChecked] = React.useState(true);
-   const [abstractPhotographyRadioChecked, setAbstractPhotographyRadioChecked] = React.useState(true);
-   const [dancingRadioChecked, setDancingRadioChecked] = React.useState(true);
-   const [streetArtistRadioChecked, setStreetArtistRadioChecked] = React.useState(true);
-   const [drawingRadioChecked, setDrawingRadioChecked] = React.useState(true);
-   const [paintingRadioChecked, setPaintingRadioChecked] = React.useState(true);
+   //Radios
+   const [socialMediaRadioChecked, setSocialMediaRadioChecked] = React.useState(true);
+   const [influencingRadioChecked, setInfluencingRadioChecked] = React.useState(true);
+   const [marketingRadioChecked, setMarketingRadioChecked] = React.useState(true);
+   const [artistManagementRadioChecked, setArtistManagementRadioChecked] = React.useState(true);
+   const [recordLabelRadioChecked, setRecordLabelRadioChecked] = React.useState(true);
+   const [venueOwnerRadioChecked, setVenueOwnerRadioChecked] = React.useState(true);
+   const [studioOwnerRadioChecked, setStudioOwnerRadioChecked] = React.useState(true);
+   const [bookingAgentRadioChecked, setBookingAgentRadioChecked] = React.useState(true);
+   const [eventPromoterRadioChecked, setEventPromoterRadioChecked] = React.useState(true);
+   const [musicReviewerRadioChecked, setMusicReviewerRadioChecked] = React.useState(true);
+   const [interviewerRadioChecked, setInterviewerRadioChecked] = React.useState(true);
+   const [podcastHostRadioChecked, setPodcastHostRadioChecked] = React.useState(true);
 
-   const [videographyRadioChecked, setVideographyRadioChecked] = React.useState(true);
-   const [droneVideographyRadioChecked, setDroneVideographyRadioChecked] = React.useState(true);
-   const [twoDorThreeDGraphicsRadioChecked, setTwoDorThreeDGraphicsRadioChecked] = React.useState(true);
-   const [animationRadioChecked, setAnimationRadioChecked] = React.useState(true);
-   const [cinematographyRadioChecked, setCinematographyRadioChecked] = React.useState(true);
-   const [webDevelopmentRadioChecked, setWebDevelopmentRadioChecked] = React.useState(true);
-   const [mobileDevelopmentRadioChecked, setMobileDevelopmentRadioChecked] = React.useState(true);
-   const [artificialIntelligenceRadioChecked, setArtificialIntelligenceRadioChecked] = React.useState(true);
    // Toggles
    const [openToCollabsToggledOn, setOpenToCollabsToggledOn] = React.useState(false);
    const [certifiedOnlyToggledOn, setCertifiedOnlyToggledOn] = React.useState(false);
@@ -48,11 +44,11 @@ const OtherFilter = (props) => {
             style={styles.selectDropdown}
             multiSelect={true}
             size='large'
-            placeholder='Select Expertise Level(s)'
+            placeholder='Years of Experience'
             selectedIndex={multiSelectedIndex}
             value={multiSelectDisplayValues.join(', ')}
             onSelect={(index) => setMultiSelectedIndex(index)}>
-            <SelectGroup title='All Expertise Levels'>
+            <SelectGroup title='Any'>
                {data.map((title, i) => (
                   <SelectItem key={i} title={title} />
                ))}
@@ -64,51 +60,39 @@ const OtherFilter = (props) => {
                <Layout style={styles.togglesColumn}>
                   <Radio
                      style={styles.radio}
-                     checked={socialMediaMarketingRadioChecked}
-                     onChange={nextChecked => setSocialMediaMarketingRadioChecked(nextChecked)}>
-                     Social Media Marketing
+                     checked={artistManagementRadioChecked}
+                     onChange={nextChecked => setArtistManagementRadioChecked(nextChecked)}>
+                     Artist Management
                   </Radio>
                   <Radio
                      style={styles.radio}
-                     checked={influencerRadioChecked}
-                     onChange={nextChecked => setInfluencerRadioChecked(nextChecked)}>
-                     Influencer
+                     checked={recordLabelRadioChecked}
+                     onChange={nextChecked => setRecordLabelRadioChecked(nextChecked)}>
+                     Record Label
                   </Radio>
                   <Radio
                      style={styles.radio}
-                     checked={concertPhotographyRadioChecked}
-                     onChange={nextChecked => setConcertPhotographyRadioChecked(nextChecked)}>
-                     Concert Photography
+                     checked={venueOwnerRadioChecked}
+                     onChange={nextChecked => setVenueOwnerRadioChecked(nextChecked)}>
+                     Venue Owner
                   </Radio>
                   <Radio
                      style={styles.radio}
-                     checked={abstractPhotographyRadioChecked}
-                     onChange={nextChecked => setAbstractPhotographyRadioChecked(nextChecked)}>
-                     Abstract Photography
+                     checked={studioOwnerRadioChecked}
+                     onChange={nextChecked => setStudioOwnerRadioChecked(nextChecked)}>
+                     Studio Owner
                   </Radio>
                   <Radio
                      style={styles.radio}
-                     checked={dancingRadioChecked}
-                     onChange={nextChecked => setDancingRadioChecked(nextChecked)}>
-                     Dancing
+                     checked={bookingAgentRadioChecked}
+                     onChange={nextChecked => setBookingAgentRadioChecked(nextChecked)}>
+                     Booking Agent
                   </Radio>
                   <Radio
                      style={styles.radio}
-                     checked={streetArtistRadioChecked}
-                     onChange={nextChecked => setStreetArtistRadioChecked(nextChecked)}>
-                     Street Artist
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={drawingRadioChecked}
-                     onChange={nextChecked => setDrawingRadioChecked(nextChecked)}>
-                     Drawing
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={paintingRadioChecked}
-                     onChange={nextChecked => setPaintingRadioChecked(nextChecked)}>
-                     Painting
+                     checked={eventPromoterRadioChecked}
+                     onChange={nextChecked => setEventPromoterRadioChecked(nextChecked)}>
+                     Event Promoter
                   </Radio>
                   <Toggle
                      style={styles.toggle}
@@ -120,51 +104,39 @@ const OtherFilter = (props) => {
                <Layout style={styles.togglesColumn}>
                   <Radio
                      style={styles.radio}
-                     checked={videographyRadioChecked}
-                     onChange={nextChecked => setVideographyRadioChecked(nextChecked)}>
-                     Videography
+                     checked={socialMediaRadioChecked}
+                     onChange={nextChecked => setSocialMediaRadioChecked(nextChecked)}>
+                     Social Media
                   </Radio>
                   <Radio
                      style={styles.radio}
-                     checked={droneVideographyRadioChecked}
-                     onChange={nextChecked => setDroneVideographyRadioChecked(nextChecked)}>
-                     Drone Videography
+                     checked={influencingRadioChecked}
+                     onChange={nextChecked => setInfluencingRadioChecked(nextChecked)}>
+                     Influencing
                   </Radio>
                   <Radio
                      style={styles.radio}
-                     checked={twoDorThreeDGraphicsRadioChecked}
-                     onChange={nextChecked => setTwoDorThreeDGraphicsRadioChecked(nextChecked)}>
-                     2D or 3D Graphics
+                     checked={marketingRadioChecked}
+                     onChange={nextChecked => setMarketingRadioChecked(nextChecked)}>
+                     Marketing
                   </Radio>
                   <Radio
                      style={styles.radio}
-                     checked={animationRadioChecked}
-                     onChange={nextChecked => setAnimationRadioChecked(nextChecked)}>
-                     Animation
+                     checked={musicReviewerRadioChecked}
+                     onChange={nextChecked => setMusicReviewerRadioChecked(nextChecked)}>
+                     Music Reviewer
                   </Radio>
                   <Radio
                      style={styles.radio}
-                     checked={cinematographyRadioChecked}
-                     onChange={nextChecked => setCinematographyRadioChecked(nextChecked)}>
-                     Cinematography
+                     checked={interviewerRadioChecked}
+                     onChange={nextChecked => setInterviewerRadioChecked(nextChecked)}>
+                     Interviewer
                   </Radio>
                   <Radio
                      style={styles.radio}
-                     checked={webDevelopmentRadioChecked}
-                     onChange={nextChecked => setWebDevelopmentRadioChecked(nextChecked)}>
-                     Web Development
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={mobileDevelopmentRadioChecked}
-                     onChange={nextChecked => setMobileDevelopmentRadioChecked(nextChecked)}>
-                     Mobile Development
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
-                     checked={artificialIntelligenceRadioChecked}
-                     onChange={nextChecked => setArtificialIntelligenceRadioChecked(nextChecked)}>
-                     Artificial Intelligence
+                     checked={podcastHostRadioChecked}
+                     onChange={nextChecked => setPodcastHostRadioChecked(nextChecked)}>
+                     Podcast Host
                   </Radio>
                   <Toggle
                      style={styles.toggle}
@@ -223,5 +195,17 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-between',
       // alignItems: 'center'
-   }
+   },
+   buttonGroupHeader: {
+      paddingHorizontal: 15,
+      paddingTop: 10,
+      justifyContent: 'center'
+   },
+   buttonGroup: {
+      paddingHorizontal: 15,
+      paddingTop: 10,
+      paddingBottom: 20,
+      flexDirection: 'row',
+      justifyContent: 'center'
+   },
 });

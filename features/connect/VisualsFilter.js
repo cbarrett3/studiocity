@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { Text, Card, Toggle, Tab, TabBar, Button, ButtonGroup, Radio, RadioGroup, Icon, IndexPath, Layout, Select, SelectGroup, SelectItem } from '@ui-kitten/components'
 
 const data = [
-   'Newcomer',
+   'Novice',
    'Intermediate',
    'Expert',
 ];
