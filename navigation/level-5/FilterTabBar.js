@@ -8,7 +8,7 @@ import { Tab, Button, Icon, Layout, Text } from '@ui-kitten/components';
 import { TabBarStyledForFeed } from '../../components/styledComponents/TabBarStyledForFeedSC';
 import { DrawerActions } from '@react-navigation/native';
 
-export const FeedTabBar = (props) => {
+export const FilterTabBar = (props) => {
    const onTabSelect = (index) => {
       const selectedTabRoute = props.state.routeNames[index];
       props.navigation.navigate(selectedTabRoute);
@@ -18,13 +18,14 @@ export const FeedTabBar = (props) => {
       return (
          <Tab
             key={route.key}
+            activeOpacity='.5'
             title={evaProps => <Text {...evaProps} >{options.title}</Text>}
          />
       );
    };
    return (
       <>
-         <Layout style={styles.headerContainer}>
+         {/* <Layout style={styles.headerContainer}>
             <Button
                appearance='ghost'
                accessoryLeft={MenuIcon}
@@ -37,7 +38,7 @@ export const FeedTabBar = (props) => {
                appearance='ghost'
                accessoryLeft={NotificationIcon}
             />
-         </Layout>
+         </Layout> */}
          <TabBarStyledForFeed selectedIndex={props.state.index} onSelect={onTabSelect}>
             {props.state.routes.map(createNavigationTabForRoute)}
          </TabBarStyledForFeed>
