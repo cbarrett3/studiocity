@@ -147,8 +147,17 @@ const OtherFilter = (props) => {
                </Layout>
             </Layout>
          </Layout>
-         <Layout style={styles.bottomButtons}>
+         {/* <Layout style={styles.bottomButtons}>
             <Button appearance='outline' style={styles.applyButton}> Reset </Button>
+            <Button status='success' style={styles.applyButton}> Apply </Button>
+         </Layout> */}
+                  <Layout style={styles.bottomButtons}>
+            {/* <Button appearance='outline' style={styles.applyButton}> Reset </Button> */}
+            <Button appearance='outline' style={styles.ResetAndUnselectButtons}> Reset All </Button>
+            <Button status='info' appearance='outline' style={styles.ResetAndUnselectButtons}> Unselect All </Button>
+            {/* <Button status='success' style={styles.applyButton}> Apply </Button> */}
+         </Layout>
+         <Layout style={styles.bottomButtons}>
             <Button status='success' style={styles.applyButton}> Apply </Button>
          </Layout>
       </Layout>
@@ -184,16 +193,41 @@ const styles = StyleSheet.create({
       paddingHorizontal: 15,
       paddingVertical: 20
    },
-   applyButton: {
-      marginHorizontal: 15,
+   // applyButton: {
+   //    marginHorizontal: 15,
+   //    // marginTop: 10, // button position, below radios
+   //    // paddingVertical: 15, // button size
+   //    flexGrow: 1
+   // },
+   // bottomButtons: {
+   //    // marginHorizontal: 15,
+   //    flexDirection: 'row',
+   //    justifyContent: 'space-between',
+   //    // alignItems: 'center'
+   // },
+   ResetAndUnselectButtons: {
+      marginHorizontal: 3,
+      // width: '50%',
       // marginTop: 10, // button position, below radios
       // paddingVertical: 15, // button size
+      flexGrow: 1,
+      flexBasis: '49%'
+      // borderRadius: 0
+   },
+   applyButton: {
+      // marginHorizontal: 5,
+      // width: '50%',
+      marginTop: 20, // button position, below radios
+      paddingVertical: 15, // button size
       flexGrow: 1
+      // width: '100%'
    },
    bottomButtons: {
-      // marginHorizontal: 15,
+      marginHorizontal: 15,
+      display: 'flex',
       flexDirection: 'row',
-      justifyContent: 'space-between',
+      justifyContent: 'space-evenly',
+      // paddingHorizontal: 10,
       // alignItems: 'center'
    },
    buttonGroupHeader: {

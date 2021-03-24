@@ -62,8 +62,8 @@ const MusicFilter = (props) => {
       new IndexPath(13, 0),
       new IndexPath(14, 0),
       new IndexPath(15, 0),
-      new IndexPath(16, 0),
-      new IndexPath(17, 0),
+      // new IndexPath(16, 0),
+      // new IndexPath(17, 0),
    ]);
    // Dropdown Display Values (gets text values for indices determined by multiselectedIndex)
    const multiSelectDisplayValues = multiSelectedIndex.map(index => {
@@ -122,22 +122,22 @@ const MusicFilter = (props) => {
                   </Radio>
                   <Radio
                      style={styles.radio}
-                     checked={brassRadioChecked}
-                     onChange={nextChecked => setBrassRadioChecked(nextChecked)}>
-                     Brass
-                  </Radio>
-                  <Radio
-                     style={styles.radio}
                      checked={percussionRadioChecked}
                      onChange={nextChecked => setPercussionRadioChecked(nextChecked)}>
                      Percussion
                   </Radio>
-                  <Radio
+                  {/* <Radio
+                     style={styles.radio}
+                     checked={brassRadioChecked}
+                     onChange={nextChecked => setBrassRadioChecked(nextChecked)}>
+                     Brass
+                  </Radio> */}
+                  {/* <Radio
                      style={styles.radio}
                      checked={woodwindRadioChecked}
                      onChange={nextChecked => setWoodwindRadioChecked(nextChecked)}>
                      Woodwind
-                  </Radio>
+                  </Radio> */}
                   <Toggle
                      style={styles.toggle}
                      checked={openToCollabsToggledOn}
@@ -182,18 +182,18 @@ const MusicFilter = (props) => {
                      onChange={nextChecked => setMasteringEngineerRadioChecked(nextChecked)}>
                      Mastering Engineer
                   </Radio>
-                  <Radio
+                  {/* <Radio
                      style={styles.radio}
                      checked={systemsEngineerRadioChecked}
                      onChange={nextChecked => setSystemsEngineerRadioChecked(nextChecked)}>
                      Systems Engineer
-                  </Radio>
-                  <Radio
+                  </Radio> */}
+                  {/* <Radio
                      style={styles.radio}
                      checked={sessionMusicianRadioChecked}
                      onChange={nextChecked => setSessionMusicianRadioChecked(nextChecked)}>
                      Session Musician
-                  </Radio>
+                  </Radio> */}
                   <Toggle
                      style={styles.toggle}
                      checked={certifiedOnlyToggledOn}
@@ -203,8 +203,17 @@ const MusicFilter = (props) => {
                </Layout>
             </Layout>
          </Layout>
-         <Layout style={styles.bottomButtons}>
+         {/* <Layout style={styles.bottomButtons}>
             <Button appearance='outline' style={styles.applyButton}> Reset </Button>
+            <Button status='success' style={styles.applyButton}> Apply </Button>
+         </Layout> */}
+         <Layout style={styles.bottomButtons}>
+            {/* <Button appearance='outline' style={styles.applyButton}> Reset </Button> */}
+            <Button appearance='outline' style={styles.ResetAndUnselectButtons}> Reset All </Button>
+            <Button status='info' appearance='outline' style={styles.ResetAndUnselectButtons}> Unselect All </Button>
+            {/* <Button status='success' style={styles.applyButton}> Apply </Button> */}
+         </Layout>
+         <Layout style={styles.bottomButtons}>
             <Button status='success' style={styles.applyButton}> Apply </Button>
          </Layout>
       </Layout>
@@ -240,16 +249,41 @@ const styles = StyleSheet.create({
       paddingHorizontal: 15,
       paddingVertical: 20
    },
-   applyButton: {
-      marginHorizontal: 15,
+   // applyButton: {
+   //    marginHorizontal: 15,
+   //    // marginTop: 10, // button position, below radios
+   //    // paddingVertical: 15, // button size
+   //    flexGrow: 1
+   // },
+   // bottomButtons: {
+   //    // marginHorizontal: 15,
+   //    flexDirection: 'row',
+   //    justifyContent: 'space-between',
+   //    // alignItems: 'center'
+   // }
+   ResetAndUnselectButtons: {
+      marginHorizontal: 3,
+      // width: '50%',
       // marginTop: 10, // button position, below radios
       // paddingVertical: 15, // button size
+      flexGrow: 1,
+      flexBasis: '49%'
+      // borderRadius: 0
+   },
+   applyButton: {
+      // marginHorizontal: 5,
+      // width: '50%',
+      marginTop: 20, // button position, below radios
+      paddingVertical: 15, // button size
       flexGrow: 1
+      // width: '100%'
    },
    bottomButtons: {
-      // marginHorizontal: 15,
+      marginHorizontal: 15,
+      display: 'flex',
       flexDirection: 'row',
-      justifyContent: 'space-between',
+      justifyContent: 'space-evenly',
+      // paddingHorizontal: 10,
       // alignItems: 'center'
    }
 });
