@@ -3,9 +3,9 @@ import { StyleSheet } from 'react-native';
 import { Text, Card, Toggle, Tab, TabBar, Button, ButtonGroup, Radio, RadioGroup, Icon, IndexPath, Layout, Select, SelectGroup, SelectItem } from '@ui-kitten/components'
 
 const data = [
-   'Less than 1 Year',
-   'More than 1 Year',
-   'More than 3 Years',
+   '0 - 1 Years',
+   '1+ Years',
+   '3+ Years',
 ];
 
 const OtherFilter = (props) => {
@@ -32,12 +32,55 @@ const OtherFilter = (props) => {
    const [multiSelectedIndex, setMultiSelectedIndex] = React.useState([
       new IndexPath(0, 0),
       new IndexPath(1, 0),
-      new IndexPath(2, 0),
+      new IndexPath(2, 0)
    ]);
    // Dropdown Display Values (gets text values for indices determined by multiselectedIndex)
    const multiSelectDisplayValues = multiSelectedIndex.map(index => {
       return data[index.row];
    });
+
+   // Reset Bottom Button
+   const onReset = () => {
+      setArtistManagementRadioChecked(true);
+      setRecordLabelRadioChecked(true);
+      setVenueOwnerRadioChecked(true);
+      setStudioOwnerRadioChecked(true);
+      setBookingAgentRadioChecked(true);
+      setEventPromoterRadioChecked(true);
+      setSocialMediaRadioChecked(true);
+      setInfluencingRadioChecked(true);
+      setMarketingRadioChecked(true);
+      setMusicReviewerRadioChecked(true);
+      setInterviewerRadioChecked(true);
+      setPodcastHostRadioChecked(true);
+      setCertifiedOnlyToggledOn(false);
+      setOpenToCollabsToggledOn(false);
+      setMultiSelectedIndex([      
+         new IndexPath(0, 0),
+         new IndexPath(1, 0),
+         new IndexPath(2, 0)
+      ])
+   }
+
+   // Clear Bottom Button
+   const onClear = () => {
+      setArtistManagementRadioChecked(false);
+      setRecordLabelRadioChecked(false);
+      setVenueOwnerRadioChecked(false);
+      setStudioOwnerRadioChecked(false);
+      setBookingAgentRadioChecked(false);
+      setEventPromoterRadioChecked(false);
+      setSocialMediaRadioChecked(false);
+      setInfluencingRadioChecked(false);
+      setMarketingRadioChecked(false);
+      setMusicReviewerRadioChecked(false);
+      setInterviewerRadioChecked(false);
+      setPodcastHostRadioChecked(false);
+      setCertifiedOnlyToggledOn(false);
+      setOpenToCollabsToggledOn(false);
+      setMultiSelectedIndex([]);
+   }
+   
    return (
       <Layout style={styles.container} level='1'>
          <Select
@@ -153,8 +196,8 @@ const OtherFilter = (props) => {
          </Layout> */}
                   <Layout style={styles.bottomButtons}>
             {/* <Button appearance='outline' style={styles.applyButton}> Reset </Button> */}
-            <Button appearance='outline' style={styles.ResetAndUnselectButtons}> Reset All </Button>
-            <Button status='info' appearance='outline' style={styles.ResetAndUnselectButtons}> Unselect All </Button>
+            <Button appearance='outline' style={styles.ResetAndUnselectButtons} onPress={onReset}> Reset </Button>
+            <Button status='info' appearance='outline' style={styles.ResetAndUnselectButtons} onPress={onClear}> Clear </Button>
             {/* <Button status='success' style={styles.applyButton}> Apply </Button> */}
          </Layout>
          <Layout style={styles.bottomButtons}>

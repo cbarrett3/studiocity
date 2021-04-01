@@ -42,6 +42,49 @@ const VisualsFilter = (props) => {
    const multiSelectDisplayValues = multiSelectedIndex.map(index => {
       return data[index.row];
    });
+
+   // Reset Bottom Button
+   const onReset = () => {
+      setPortraitPhotographyRadioChecked(true);
+      setStreetArtistRadioChecked(true);
+      setConcertPhotographyRadioChecked(true);
+      setDancingRadioChecked(true);
+      setStreetPhotographyRadioChecked(true);
+      setPaintingRadioChecked(true);
+      setVideographyRadioChecked(true);
+      setDroneVideographyRadioChecked(true);
+      setTwoDorThreeDGraphicsRadioChecked(true);
+      setAnimationRadioChecked(true);
+      setCinematographyRadioChecked(true);
+      setWebDevelopmentRadioChecked(true);
+      setCertifiedOnlyToggledOn(false);
+      setOpenToCollabsToggledOn(false);
+      setMultiSelectedIndex([      
+         new IndexPath(0, 0),
+         new IndexPath(1, 0),
+         new IndexPath(2, 0)
+      ])
+   }
+
+   // Clear Bottom Button
+   const onClear = () => {
+      setPortraitPhotographyRadioChecked(false);
+      setStreetArtistRadioChecked(false);
+      setConcertPhotographyRadioChecked(false);
+      setDancingRadioChecked(false);
+      setStreetPhotographyRadioChecked(false);
+      setPaintingRadioChecked(false);
+      setVideographyRadioChecked(false);
+      setDroneVideographyRadioChecked(false);
+      setTwoDorThreeDGraphicsRadioChecked(false);
+      setAnimationRadioChecked(false);
+      setCinematographyRadioChecked(false);
+      setWebDevelopmentRadioChecked(false);
+      setCertifiedOnlyToggledOn(false);
+      setOpenToCollabsToggledOn(false);
+      setMultiSelectedIndex([]);
+   }
+
    return (
       <Layout style={styles.container} level='1'>
          <Select
@@ -177,8 +220,8 @@ const VisualsFilter = (props) => {
          </Layout>
          <Layout style={styles.bottomButtons}>
             {/* <Button appearance='outline' style={styles.applyButton}> Reset </Button> */}
-            <Button appearance='outline' style={styles.ResetAndUnselectButtons}> Reset All </Button>
-            <Button status='info' appearance='outline' style={styles.ResetAndUnselectButtons}> Unselect All </Button>
+            <Button appearance='outline' style={styles.ResetAndUnselectButtons} onPress={onReset}> Reset </Button>
+            <Button status='info' appearance='outline' style={styles.ResetAndUnselectButtons} onPress={onClear}> Clear </Button>
             {/* <Button status='success' style={styles.applyButton}> Apply </Button> */}
          </Layout>
          <Layout style={styles.bottomButtons}>

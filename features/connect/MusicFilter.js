@@ -4,23 +4,17 @@ import { Text, Card, Toggle, Tab, TabBar, Button, ButtonGroup, Radio, RadioGroup
 
 const data = [
    'Alternative',
-   'Blues',
-   'Classical',
    'Country',
    'Dance',
    'Electronic',
-   'Gospel',
    'Hip-Hop/Rap',
    'Jazz',
    'Latin',
    'Metal',
-   'New Age',
    'Pop',
    'R&B/Soul',
    'Reggae',
    'Rock',
-   'Singer/Songwriter',
-   'World'
 ];
 
 const MusicFilter = (props) => {
@@ -58,17 +52,61 @@ const MusicFilter = (props) => {
       new IndexPath(9, 0),
       new IndexPath(10, 0),
       new IndexPath(11, 0),
-      new IndexPath(12, 0),
-      new IndexPath(13, 0),
-      new IndexPath(14, 0),
-      new IndexPath(15, 0),
-      // new IndexPath(16, 0),
-      // new IndexPath(17, 0),
    ]);
    // Dropdown Display Values (gets text values for indices determined by multiselectedIndex)
    const multiSelectDisplayValues = multiSelectedIndex.map(index => {
       return data[index.row];
    });
+
+   // Reset Bottom Button
+   const onReset = () => {
+      setSingerRadioChecked(true);
+      setRapperRadioChecked(true);
+      setProducerRadioChecked(true);
+      setComposerRadioChecked(true);
+      setStringsRadioChecked(true);
+      setPercussionRadioChecked(true);
+      setSongwriterRadioChecked(true);
+      setBandRadioChecked(true);
+      setDJRadioChecked(true);
+      setRecordingEngineerRadioChecked(true);
+      setMixingEngineerRadioChecked(true);
+      setMasteringEngineerRadioChecked(true);
+      setOpenToCollabsToggledOn(false);
+      setCertifiedOnlyToggledOn(false);
+      setMultiSelectedIndex([      
+         new IndexPath(0, 0),
+         new IndexPath(1, 0),
+         new IndexPath(2, 0),
+         new IndexPath(3, 0),
+         new IndexPath(4, 0),
+         new IndexPath(5, 0),
+         new IndexPath(6, 0),
+         new IndexPath(7, 0),
+         new IndexPath(8, 0),
+         new IndexPath(9, 0),
+         new IndexPath(10, 0),
+         new IndexPath(11, 0),])
+   }
+
+      // Clear Bottom Button
+      const onClear = () => {
+         setSingerRadioChecked(false);
+         setRapperRadioChecked(false);
+         setProducerRadioChecked(false);
+         setComposerRadioChecked(false);
+         setStringsRadioChecked(false);
+         setPercussionRadioChecked(false);
+         setSongwriterRadioChecked(false);
+         setBandRadioChecked(false);
+         setDJRadioChecked(false);
+         setRecordingEngineerRadioChecked(false);
+         setMixingEngineerRadioChecked(false);
+         setMasteringEngineerRadioChecked(false);
+         setOpenToCollabsToggledOn(false);
+         setCertifiedOnlyToggledOn(false);
+         setMultiSelectedIndex([])
+      }
 
    return (
       <Layout style={styles.container} level='1'>
@@ -209,8 +247,8 @@ const MusicFilter = (props) => {
          </Layout> */}
          <Layout style={styles.bottomButtons}>
             {/* <Button appearance='outline' style={styles.applyButton}> Reset </Button> */}
-            <Button appearance='outline' style={styles.ResetAndUnselectButtons}> Reset All </Button>
-            <Button status='info' appearance='outline' style={styles.ResetAndUnselectButtons}> Unselect All </Button>
+            <Button appearance='outline' style={styles.ResetAndUnselectButtons} onPress={onReset}> Reset </Button>
+            <Button status='info' appearance='outline' style={styles.ResetAndUnselectButtons} onPress={onClear}> Clear </Button>
             {/* <Button status='success' style={styles.applyButton}> Apply </Button> */}
          </Layout>
          <Layout style={styles.bottomButtons}>
