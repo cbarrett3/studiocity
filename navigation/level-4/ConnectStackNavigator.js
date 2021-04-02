@@ -8,6 +8,7 @@ import Filter from '../../features/connect/MusicFilter'; // should this be named
 import Map from '../../features/connect/Map'; // should this be named MapScreen?
 import { ConnectHeader } from '../../features/connect/ConnectHeader';
 import { FilterHeader } from '../../features/connect/FilterHeader';
+import { MapHeader } from '../../features/connect/MapHeader';
 import { FilterTabBarNavigator } from '../level-5/FilterTabBarNavigator';
 
 const ConnectStack = createStackNavigator();
@@ -17,7 +18,7 @@ const filterHeaderRight = () => {
 }
 
 export const ConnectStackNavigator = () => (
-   <ConnectStack.Navigator initialRouteName='Connect' headerMode='screen'>
+   <ConnectStack.Navigator initialRouteName='Connect' headerMode='screen' mode='modal'>
       <ConnectStack.Screen 
          name="Connect" 
          component={Connect} 
@@ -42,6 +43,12 @@ export const ConnectStackNavigator = () => (
       <ConnectStack.Screen 
          name="Map" 
          component={Map} 
+         options={{
+            title:"Filter",
+            header: (props) => (
+               <MapHeader {...props} />
+            ),
+         }}
       />
    </ConnectStack.Navigator>
 );

@@ -25,7 +25,7 @@ export const FilterHeader = (props) => {
 
 /* icons */
 const BackIcon = (props) => (
-   <Icon {...props} style={[props.style, { width: 28, height: 28 }]} name='arrow-back' />
+   <Icon {...props} style={[props.style, { width: 28, height: 28 }]} name='arrow-downward-outline' />
 );
 
 const styles = StyleSheet.create({
